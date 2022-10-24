@@ -1,0 +1,11 @@
+/**
+ * App Styles
+ * NOTE: project styles should follow SASS 7-1 Architecture
+ * @see https://sass-guidelin.es/#the-7-1-pattern
+ */
+
+@import 'abstract/variables';
+
+@import 'base/reset',
+  'base/fonts',
+  'base/typography';
