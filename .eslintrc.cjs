@@ -37,6 +37,7 @@ module.exports = {
     'vue/prop-name-casing': 'error',
     'vue/require-default-prop': 'error',
     'vue/require-prop-type-constructor': 'error',
-    'vue/component-api-style': ['error', ['options']]
+    'vue/component-api-style': ['error', ['options']],
+    'vue/component-name-in-template-casing': ['error', 'kebab-case', { registeredComponentsOnly: true }]
   }
 }
