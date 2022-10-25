@@ -8,11 +8,20 @@ export default defineComponent({
   components: {
     HeaderLayout,
     TopMenu
+  },
+  metaInfo() {
+    return {
+      title: 'BikeRent Vue'
+    }
   }
 })
 </script>
 
 <template>
+  <metainfo>
+    <template #title="{ content }">{{ content }}</template>
+  </metainfo>
+
   <header-layout>
     <template #menu>
       <top-menu />

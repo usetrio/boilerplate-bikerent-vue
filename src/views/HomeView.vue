@@ -2,7 +2,12 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'HomeView'
+  name: 'HomeView',
+  metaInfo() {
+    return {
+      title: 'Home - BikeRent Vue'
+    }
+  }
 })
 </script>
 
