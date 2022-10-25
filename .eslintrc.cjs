@@ -17,6 +17,12 @@ module.exports = {
     {
       files: ['cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'],
       extends: ['plugin:cypress/recommended']
+    },
+    {
+      files: ['**/*.d.ts'],
+      rules: {
+        'no-unused-vars': 'off'
+      }
     }
   ],
   parserOptions: {
