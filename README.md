@@ -21,6 +21,19 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
+# Project Requeriments
+
+* `node` >= v16
+* `npm` >= 8
+
+Case environment does not match requirements, it is recommended to use `nvm` to handle different node environments. Instructions can be found [here](https://github.com/nvm-sh/nvm).
+
+Additionally, a `.nvmrc` file was added to set correct `node` environment to run application.
+
+```sh
+nvm use
+```
+
 ## Project Setup
 
 ```sh
