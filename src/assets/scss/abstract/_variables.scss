@@ -14,10 +14,16 @@ $font-family-base: 'Montserrat', sans-serif;
 $colors: (
   'black': [#000],
   'white': [#fff],
+  'gray': [#e7e7e7],
   'primary': [#ccc],
   'secondary': [#607d8b],
+  'surface': [#fff],
+  'background': [#fff],
   'on-primary': [#666],
   'on-secondary': [#fefefe],
   'error': [#ff0000],
   'success': [#00ff00]
 ) !default;
+
+
+$border-radius-md: 16px !default;
