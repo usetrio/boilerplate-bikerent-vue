@@ -1,9 +1,12 @@
-@use 'sass:map' as map;
+@use 'sass:map'as map;
 
-@use '@snug/core' as snug;
+@use '@snug/core'as snug with ($breakpoints: ('sm': 640px,
+    'md': 768px,
+    'lg': 1024px,
+    'xs': 1280px,
+  ));
 
-$spacing: (
-  '0': 0,
+$spacing: ('0': 0,
   '1': .25rem,
   '2': .5rem,
   '3': .75rem,
@@ -23,8 +26,7 @@ $spacing: (
   '64': 16rem,
 ) !default;
 
-$display: (
-  'block': block,
+$display: ('block': block,
   'inline-block': inline-block,
   'inline': inline,
   'flex': flex,
@@ -34,24 +36,33 @@ $display: (
   'hidden': none,
 ) !default;
 
-$breakpoints: (
-  'sm': 640px,
-  'md': 768px,
-  'lg': 1024px,
-  'xs': 1280px,
-) !default;
 
-$margin: map.merge((
-  'auto': auto
-), $spacing);
+$margin: map.merge(('auto': auto), $spacing);
 
-/// Display helpers
-@include snug.options($display, 'responsive') using ($value) {
-  display: $value;
-}
+$text: ('left': left,
+  'right': right,
+  'center': center,
+  'justify': justify,
+);
 
-/// Padding helpers
+// Using snug to generate helper classes
 @include snug.variants('responsive') using ($props...) {
+
+  /// Text alignment helpers
+  .text {
+    @include snug.options($text, 'responsive') using ($value) {
+      text-align: $value;
+    }
+  }
+
+  /// Display helpers
+
+
+  @include snug.options($display, $props...) using ($value) {
+    display: $value;
+  }
+
+  /// Padding helpers
   .p {
     @include snug.options($spacing, $props...) using ($value) {
       padding: $value;
@@ -95,10 +106,8 @@ $margin: map.merge((
       padding-left: $value;
     }
   }
-}
 
-/// Margin helpers
-@include snug.variants('responsive') using ($props...) {
+  /// Margin helpers
   .m {
     @include snug.options($margin, $props...) using ($value) {
       margin: $value;
@@ -145,8 +154,6 @@ $margin: map.merge((
 }
 
 
-
-
 /// Custom Flexbox Helper Classes
 .flex {
   display: flex;
@@ -154,8 +161,9 @@ $margin: map.merge((
   &.cell {
     flex: 1;
   }
+
   &.equal-sizing {
-    > * {
+    >* {
       flex-basis: 0;
       flex-grow: 1;
     }
@@ -163,58 +171,77 @@ $margin: map.merge((
 
   &.flex-column {
     flex-direction: column;
+
     &.top {
       align-content: flex-start;
     }
+
     &.bottom {
       align-content: flex-end;
     }
+
     &.vertical-center {
       align-content: center;
     }
+
     &.space-between {
       align-content: space-between;
     }
+
     &.space-around {
       align-content: space-around;
     }
-  } // end column
+  }
+
+  // end column
 
   &.flex-row {
     flex-direction: row;
+
     &.wrap {
       flex-flow: row wrap;
     }
+
     &.top {
       align-items: flex-start;
     }
+
     &.bottom {
       align-items: flex-end;
     }
+
     &.vertical-center {
       align-items: center;
     }
+
     &.baseline {
       align-items: baseline;
     }
+
     &.stretch {
       align-items: stretch;
     }
-  } // end row
+  }
+
+  // end row
 
   // along main axis
   &.start {
     justify-content: flex-start;
   }
+
   &.end {
     justify-content: flex-end;
   }
+
   &.center {
     justify-content: center;
   }
+
   &.space-between {
     justify-content: space-between;
   }
+
   &.space-around {
     justify-content: space-around;
   }
