@@ -1,0 +1,22 @@
+.button {
+  display: inline-block;
+  padding: 14px 20px;
+  border-radius: $border-radius-md;
+  color: get-theme-color('black');
+  background-color: get-theme-color('gray');
+  text-align: center;
+  text-decoration: none;
+
+  @include modifier('primary') {
+    color: get-theme-color('white');
+    background-color: get-theme-color('primary');
+  }
+  @include modifier('secondary') {
+    color: get-theme-color('black');
+    background-color: get-theme-color('secondary');
+  }
+  @include modifier('text') {
+    background-color: unset;
+  }
+
+}

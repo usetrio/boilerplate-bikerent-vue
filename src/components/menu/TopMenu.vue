@@ -9,8 +9,8 @@ export default defineComponent({
 <template>
   <nav class="menu">
     <menu>
-      <li><a href="#">Log in</a></li>
-      <li><a href="#">Sign up</a></li>
+      <li><a href="#" class="button button--text">Log in</a></li>
+      <li><a href="#" class="button">Sign up</a></li>
     </menu>
   </nav>
 </template>
