@@ -8,7 +8,10 @@ export default defineComponent({
 
 <template>
   <nav class="menu">
-    <menu>
+    <menu class="menu menu--inline">
+      <li>
+        <a href="#" class="button button--text">Manhattan <i class="fa-solid fa-location-dot"></i></a>
+      </li>
       <li><a href="#" class="button button--text">Log in</a></li>
       <li><a href="#" class="button">Sign up</a></li>
     </menu>
