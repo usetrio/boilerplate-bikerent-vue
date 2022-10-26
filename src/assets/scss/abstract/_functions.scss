@@ -1,3 +1,10 @@
+/**
+ * Functions
+ * =================================
+ *
+ * Custom SASS methods to help CSS development.
+ */
+
 @use 'sass:map' as map;
 @use 'sass:list' as list;
 @use 'sass:meta' as meta;
@@ -18,7 +25,7 @@
 
   // TODO: Add proper suport to use color variants
 
-  @if (list-has-index((#fff, #fff), $colorKey)) {
+  @if (list-has-index($colorMap, $colorKey)) {
     $color: list.nth($colorMap, $colorKey);
   } @else if ($variant != 'none') {
     $color: map.nth($colorMap, 1);
