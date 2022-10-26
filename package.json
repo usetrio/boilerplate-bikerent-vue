@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "1.2.0",
+    "@snug/core": "1.0.0-rc.6",
     "@types/jsdom": "20.0.0",
     "@types/node": "16.11.68",
     "@vitejs/plugin-vue": "3.1.2",

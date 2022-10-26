@@ -1,21 +1,35 @@
-/**
- * App Styles
- * NOTE: project styles should follow SASS 7-1 Architecture
- * @see https://sass-guidelin.es/#the-7-1-pattern
- */
+/// App main stylesheet
+///
+/// NOTE: project styles should follow SASS 7-1 Architecture
+/// @see https://sass-guidelin.es/#the-7-1-pattern
 
+@charset "utf-8";
+
+// 1. Configuration and helpers
 @import 'abstract/variables',
   'abstract/functions',
   'abstract/mixins';
 
+// 2. Vendors
+@import 'vendors/font-awesome',
+ 'vendors/sass-bem-mixins';
+
+// 3. Themes
 @import 'themes/deafult';
 
+// 4. Base stuff
 @import 'base/reset',
   'base/fonts',
   'base/typography',
-  'base/base';
+  'base/base',
+  'base/helpers';
 
+// 5. Layout-related sections
+@import 'layout/navigation';
+
+// 6. Components
 @import 'components/button',
   'components/menu';
 
-@import 'vendors/font-awesome';
+
+// 7. Page-specific styles

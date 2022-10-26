@@ -1,0 +1,222 @@
+@use 'sass:map' as map;
+
+@use '@snug/core' as snug;
+
+$spacing: (
+  '0': 0,
+  '1': .25rem,
+  '2': .5rem,
+  '3': .75rem,
+  '4': 1rem,
+  '5': 1.25rem,
+  '6': 1.5rem,
+  '8': 2rem,
+  '10': 2.5rem,
+  '12': 3rem,
+  '16': 4rem,
+  '20': 5rem,
+  '24': 6rem,
+  '32': 8rem,
+  '40': 10rem,
+  '48': 12rem,
+  '56': 14rem,
+  '64': 16rem,
+) !default;
+
+$display: (
+  'block': block,
+  'inline-block': inline-block,
+  'inline': inline,
+  'flex': flex,
+  'inline-flex': inline-flex,
+  'grid': grid,
+  'inline-grid': inline-grid,
+  'hidden': none,
+) !default;
+
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xs': 1280px,
+) !default;
+
+$margin: map.merge((
+  'auto': auto
+), $spacing);
+
+/// Display helpers
+@include snug.options($display, 'responsive') using ($value) {
+  display: $value;
+}
+
+/// Padding helpers
+@include snug.variants('responsive') using ($props...) {
+  .p {
+    @include snug.options($spacing, $props...) using ($value) {
+      padding: $value;
+    }
+  }
+
+  .px {
+    @include snug.options($spacing, $props...) using ($value) {
+      padding-right: $value;
+      padding-left: $value;
+    }
+  }
+
+  .py {
+    @include snug.options($spacing, $props...) using ($value) {
+      padding-bottom: $value;
+      padding-top: $value;
+    }
+  }
+
+  .pt {
+    @include snug.options($spacing, $props...) using ($value) {
+      padding-top: $value;
+    }
+  }
+
+  .pr {
+    @include snug.options($spacing, $props...) using ($value) {
+      padding-right: $value;
+    }
+  }
+
+  .pb {
+    @include snug.options($spacing, $props...) using ($value) {
+      padding-bottom: $value;
+    }
+  }
+
+  .pl {
+    @include snug.options($spacing, $props...) using ($value) {
+      padding-left: $value;
+    }
+  }
+}
+
+/// Margin helpers
+@include snug.variants('responsive') using ($props...) {
+  .m {
+    @include snug.options($margin, $props...) using ($value) {
+      margin: $value;
+    }
+  }
+
+  .mx {
+    @include snug.options($margin, $props...) using ($value) {
+      margin-right: $value;
+      margin-left: $value;
+    }
+  }
+
+  .my {
+    @include snug.options($margin, $props...) using ($value) {
+      margin-bottom: $value;
+      margin-top: $value;
+    }
+  }
+
+  .mt {
+    @include snug.options($margin, $props...) using ($value) {
+      margin-top: $value;
+    }
+  }
+
+  .mr {
+    @include snug.options($margin, $props...) using ($value) {
+      margin-right: $value;
+    }
+  }
+
+  .mb {
+    @include snug.options($margin, $props...) using ($value) {
+      margin-bottom: $value;
+    }
+  }
+
+  .-ml {
+    @include snug.options($margin, $props...) using ($value) {
+      margin-left: $value;
+    }
+  }
+}
+
+
+
+
+/// Custom Flexbox Helper Classes
+.flex {
+  display: flex;
+
+  &.cell {
+    flex: 1;
+  }
+  &.equal-sizing {
+    > * {
+      flex-basis: 0;
+      flex-grow: 1;
+    }
+  }
+
+  &.flex-column {
+    flex-direction: column;
+    &.top {
+      align-content: flex-start;
+    }
+    &.bottom {
+      align-content: flex-end;
+    }
+    &.vertical-center {
+      align-content: center;
+    }
+    &.space-between {
+      align-content: space-between;
+    }
+    &.space-around {
+      align-content: space-around;
+    }
+  } // end column
+
+  &.flex-row {
+    flex-direction: row;
+    &.wrap {
+      flex-flow: row wrap;
+    }
+    &.top {
+      align-items: flex-start;
+    }
+    &.bottom {
+      align-items: flex-end;
+    }
+    &.vertical-center {
+      align-items: center;
+    }
+    &.baseline {
+      align-items: baseline;
+    }
+    &.stretch {
+      align-items: stretch;
+    }
+  } // end row
+
+  // along main axis
+  &.start {
+    justify-content: flex-start;
+  }
+  &.end {
+    justify-content: flex-end;
+  }
+  &.center {
+    justify-content: center;
+  }
+  &.space-between {
+    justify-content: space-between;
+  }
+  &.space-around {
+    justify-content: space-around;
+  }
+
+}
