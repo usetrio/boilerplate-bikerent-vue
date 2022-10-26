@@ -7,10 +7,13 @@
 @import 'abstract/variables',
   'abstract/functions';
 
+@import 'themes/deafult';
+
 @import 'base/reset',
   'base/fonts',
-  'base/typography';
+  'base/typography',
+  'base/base';
 
-@import 'themes/deafult';
+@import 'components/button';
 
 @import 'vendors/font-awesome';
