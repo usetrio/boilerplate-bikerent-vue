@@ -5,6 +5,20 @@
  *
  */
 
+ $colors: (
+  'black': [#1B1B1B],
+  'white': [#fff],
+  'primary': [#1F49D1],
+  'secondary': [#FFD775],
+  'surface': [#fafafa],
+  'background': [#fff],
+  'on-primary': [#C1CFF2],
+  'on-secondary': [#1B1B1B],
+  'error': [#ffcdd2],
+  'success': [#dcedc8],
+);
+
+
 body {
-  background-color: #e9e9e9;
+  background-color: get-theme-color('background');
 }

@@ -4,8 +4,13 @@
  * @see https://sass-guidelin.es/#the-7-1-pattern
  */
 
-@import 'abstract/variables';
+@import 'abstract/variables',
+  'abstract/functions';
 
 @import 'base/reset',
   'base/fonts',
   'base/typography';
+
+@import 'themes/deafult';
+
+@import 'vendors/font-awesome';

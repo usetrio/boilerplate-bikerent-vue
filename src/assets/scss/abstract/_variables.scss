@@ -10,3 +10,14 @@
 
 $font-size-base: 16px !default;
 $font-family-base: 'Montserrat', sans-serif;
+
+$colors: (
+  'black': [#000],
+  'white': [#fff],
+  'primary': [#ccc],
+  'secondary': [#607d8b],
+  'on-primary': [#666],
+  'on-secondary': [#fefefe],
+  'error': [#ff0000],
+  'success': [#00ff00]
+) !default;
