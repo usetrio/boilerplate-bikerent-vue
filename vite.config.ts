@@ -21,7 +21,7 @@ export default defineConfig({
         // This helps to check what files we need to prepend CSS before parsing it. It is very useful for Vue components only.
         // @see https://github.com/vitejs/vite/blob/177b427b1b0c72b06bddd860d14ff119cb22431f/packages/vite/src/node/plugins/css.ts#L1401-L1408
         //
-        // WARNING: This may change in vite future versions. Project is using vite@3.1.8
+        // WARNING: This may change in vite future versions. Project is using vite@3.2.0
         additionalData(source: string, filename: string) {
           let additionalData = ''
           // Include clean stylesheet to add variables, mixins, functions and helpers to Vue <style> generated CSS.
