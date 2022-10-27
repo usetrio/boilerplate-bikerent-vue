@@ -32,6 +32,46 @@
     position: $value;
   }
 
+  /// width
+  .w {
+    @include snug.options($sizing-width, $props...) using ($value) {
+      width: $value;
+    }
+  }
+  .max-w {
+    @include snug.options($sizing-width, $props...) using ($value) {
+      max-width: $value;
+    }
+  }
+  /// height
+  .h {
+    @include snug.options($sizing-height, $props...) using ($value) {
+      height: $value;
+    }
+  }
+  .max-h {
+    @include snug.options($sizing-height, $props...) using ($value) {
+      max-height: $value;
+    }
+  }
+
+  /// overflow
+  .overflow {
+    @include snug.options($overflow, $props...) using ($value) {
+      overflow: $value;
+    }
+  }
+  .overflow-x {
+    @include snug.options($overflow, $props...) using ($value) {
+      overflow-x: $value;
+    }
+  }
+  .overflow-y {
+    @include snug.options($overflow, $props...) using ($value) {
+      overflow-y: $value;
+    }
+  }
+
   .font {
     // font-weight
     @include snug.options($font-weight, $props...) using ($value) {

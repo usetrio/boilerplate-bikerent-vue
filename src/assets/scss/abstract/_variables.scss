@@ -8,6 +8,8 @@
  * - App-specific
  */
 
+@use 'sass:map';
+
 $font-size-base: 16px !default;
 $font-family-base: 'Montserrat', sans-serif;
 
@@ -42,6 +44,24 @@ $position: (
   'absolute': absolute,
   'static': static,
   'sticky': sticky
+);
+
+$sizing: (
+  '0': 0,
+  'full': 100%,
+  'min': min-content,
+  'max': max-content,
+  'fit': fit-content
+);
+
+$sizing-width: map.merge(('screen': '100vw'), $sizing);
+$sizing-height: map.merge(('screen': '100vh'), $sizing);
+
+$overflow: (
+  'hidden': hidden,
+  'scroll': scroll,
+  'visible': visible,
+  'auto': auto
 );
 
 $text-align: (
