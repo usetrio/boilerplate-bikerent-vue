@@ -28,7 +28,9 @@ export default defineComponent({
     </template>
   </header-layout>
 
-  <RouterView />
+  <div class="container mx-auto">
+    <RouterView />
+  </div>
 </template>
 
 <style scoped></style>
