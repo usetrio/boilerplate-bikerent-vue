@@ -4,4 +4,12 @@
  * CSS resets elements
  */
 
- @import "normalize.css";
+@import "normalize.css";
+
+/// headings
+@for $i from 1 through 7 {
+  h#{$i} {
+    margin: 0;
+  }
+}
+
