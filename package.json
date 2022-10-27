@@ -29,6 +29,7 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "1.2.0",
     "@snug/core": "1.0.0-rc.6",
+    "@snug/modules": "1.0.0-rc.2",
     "@types/jsdom": "20.0.0",
     "@types/node": "16.11.68",
     "@vitejs/plugin-vue": "3.1.2",
@@ -36,6 +37,7 @@
     "@vue/eslint-config-typescript": "11.0.2",
     "@vue/test-utils": "2.2.0",
     "@vue/tsconfig": "0.1.3",
+    "autoprefixer": "10.4.12",
     "cypress": "10.10.0",
     "eslint": "8.26.0",
     "eslint-plugin-cypress": "2.12.1",
