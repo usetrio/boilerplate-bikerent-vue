@@ -1,0 +1,23 @@
+/// Component focused stylesheet
+///
+/// This stylesheet will be injected on each component.
+/// It should contain only the necessary to access functions, mixins and variables.
+///
+///
+
+// 1. Configuration and helpers
+@import
+  'abstract/variables',
+  'abstract/functions',
+  'abstract/mixins';
+
+// 2. Vendors
+@import
+ 'vendors/sass-bem-mixins';
+
+// 3. Theming
+@import '@/assets/scss/themes/deafult';
+
+// 3. Base stuff
+@import
+'base/helpers';
