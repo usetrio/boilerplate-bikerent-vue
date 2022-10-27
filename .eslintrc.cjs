@@ -3,7 +3,7 @@ require('@rushstack/eslint-patch/modern-module-resolution')
 
 const { NODE_ENV = 'development' } = process.env || {}
 
-const isProductionRule = NODE_ENV === 'production' ? 'error' : 'warn'
+const productionRule = NODE_ENV === 'production' ? 'error' : 'warn'
 
 module.exports = {
   root: true,
@@ -29,21 +29,23 @@ module.exports = {
     ecmaVersion: 'latest'
   },
   rules: {
-    'brace-style': [isProductionRule, '1tbs'],
-    'comma-dangle': [isProductionRule, 'never'],
+    'brace-style': [productionRule, '1tbs'],
+    'comma-dangle': [productionRule, 'never'],
     curly: 'error',
-    'no-console': isProductionRule,
-    'no-debugger': isProductionRule,
-    'no-unused-vars': [isProductionRule, { args: 'all', argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
-    quotes: [isProductionRule, 'single', { allowTemplateLiterals: true }],
+    'no-console': productionRule,
+    'no-debugger': productionRule,
+    'no-unused-vars': [productionRule, { args: 'all', argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+    quotes: [productionRule, 'single', { allowTemplateLiterals: true }],
 
     // Vue specific ruleset
-    'vue/no-unused-vars': [isProductionRule, { ignorePattern: '^_' }],
+    'vue/no-unused-vars': [productionRule, { ignorePattern: '^_' }],
     'vue/order-in-components': 'error',
     'vue/prop-name-casing': 'error',
     'vue/require-default-prop': 'error',
     'vue/require-prop-type-constructor': 'error',
     'vue/component-api-style': ['error', ['options']],
-    'vue/component-name-in-template-casing': ['error', 'kebab-case', { registeredComponentsOnly: true }]
+    'vue/component-name-in-template-casing': ['error', 'kebab-case', { registeredComponentsOnly: true }],
+    'vue/multi-word-component-names': ['error', { ignores: ['Chip', 'Card'] }],
+    'vue/no-unused-components': [productionRule]
   }
 }
