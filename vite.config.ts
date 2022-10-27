@@ -2,6 +2,7 @@ import { URL, fileURLToPath } from 'node:url'
 
 import autoprefixer from 'autoprefixer'
 import { defineConfig } from 'vite'
+import postcssExtend from 'postcss-extend-rule'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
@@ -14,7 +15,8 @@ export default defineConfig({
   },
   css: {
     postcss: {
-      plugins: [autoprefixer]
+      // TODO: check nesting
+      plugins: [autoprefixer, postcssExtend({ name: 'apply' })]
     }
   }
 })
