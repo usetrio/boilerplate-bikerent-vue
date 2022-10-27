@@ -10,10 +10,10 @@
 /// flex classes
 @include snugModules.flex();
 
+// container
 .container {
   width: 100%;
 }
-
 @include snug.variants('responsive') using ($variant, $breakpoint) {
   .container {
     max-width: map.get($breakpoints, map.get($breakpoint, 'rule'));
@@ -24,16 +24,30 @@
       }
     }
   }
+}
 
+@include snug.variants('responsive') using ($props...) {
   /// position
-  @include snug.options($position, 'responsive') using ($value) {
+  @include snug.options($position, $props...) using ($value) {
     position: $value;
   }
 
-  /// text alignment
+  .font {
+    // font-weight
+    @include snug.options($font-weight, $props...) using ($value) {
+      font-weight: $value;
+    }
+  }
+
   .text {
-    @include snug.options($text, 'responsive') using ($value) {
+    /// text-align
+    @include snug.options($text-align, $props...) using ($value) {
       text-align: $value;
+    }
+    /// font-size
+    @include snug.options($text-size, $props...) using ($value) {
+      font-size: $value;
     }
   }
 }
+
