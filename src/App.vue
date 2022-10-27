@@ -2,12 +2,10 @@
 import { defineComponent } from 'vue'
 
 import { HeaderLayout } from '@/components/layout'
-import { TopMenu } from '@/components/menu'
 
 export default defineComponent({
   components: {
-    HeaderLayout,
-    TopMenu
+    HeaderLayout
   },
   metaInfo() {
     return {
@@ -22,11 +20,7 @@ export default defineComponent({
     <template #title="{ content }">{{ content }}</template>
   </metainfo>
 
-  <header-layout>
-    <template #menu>
-      <top-menu />
-    </template>
-  </header-layout>
+  <header-layout />
 
   <div class="container mx-auto">
     <RouterView />

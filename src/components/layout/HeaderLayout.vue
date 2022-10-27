@@ -5,12 +5,26 @@ export default defineComponent({})
 </script>
 
 <template>
-  <div class="header container container--fluid">
-    <div class="container mx-auto">
-      <h1>BikeRent</h1>
+  <div class="header container mx-auto">
+    <div class="header__content mx-auto md:px-24 py-10">
+      <div class="container mx-auto">
+        <div class="flex">
+          <h1 class="my-0 text-5xl font-extrabold">Bike Rental</h1>
 
-      <div class="navigation px-0">
-        <slot name="menu" />
+          <div class="navigation ml-auto">
+            <nav class="menu">
+              <menu class="menu menu--inline">
+                <li>
+                  <a href="#" class="button button--primary button--text font-semibold"
+                    >Manhattan <i class="fa-solid fa-location-dot"></i
+                  ></a>
+                </li>
+                <li><a href="#" class="button button--primary button--text font-semibold">Log in</a></li>
+                <li><a href="#" class="button button--secondary font-semibold">Sign up</a></li>
+              </menu>
+            </nav>
+          </div>
+        </div>
       </div>
     </div>
   </div>

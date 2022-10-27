@@ -11,7 +11,8 @@
   'abstract/mixins';
 
 // 2. Vendors
-@import 'vendors/font-awesome',
+@import
+  'vendors/font-awesome',
  'vendors/sass-bem-mixins';
 
 // 3. Themes
@@ -25,7 +26,8 @@
   'base/helpers';
 
 // 5. Layout-related sections
-@import 'layout/navigation';
+@import 'layout/header',
+  'layout/navigation';
 
 // 6. Components
 @import 'components/button',
