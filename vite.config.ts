@@ -4,6 +4,7 @@ import autoprefixer from 'autoprefixer'
 import { defineConfig } from 'vite'
 import { extname } from 'node:path'
 import postcssExtend from 'postcss-extend-rule'
+import postcssNesting from 'postcss-nesting'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
@@ -36,8 +37,8 @@ export default defineConfig({
       }
     },
     postcss: {
-      // TODO: check nesting
-      plugins: [autoprefixer, postcssExtend({ name: 'apply' })]
+      // TODO: check postcss nesting plugin
+      plugins: [autoprefixer, postcssExtend({ name: 'apply' }), postcssNesting()]
     }
   }
 })
