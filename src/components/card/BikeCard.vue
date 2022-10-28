@@ -1,0 +1,81 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+import Card from './Card.vue'
+import { Chip } from '@/components/chip'
+
+export default defineComponent({
+  components: {
+    Card,
+    Chip
+  }
+})
+</script>
+
+<template>
+  <div class="bike-card">
+    <card>
+      <template #title>
+        <div class="bike-card__title">
+          <h3>Kent Flexer</h3>
+        </div>
+      </template>
+
+      <template #image>
+        <div class="bike-card__image">
+          <img
+            src="https://media.istockphoto.com/photos/blue-modern-mens-mid-drive-motor-city-touring-or-trekking-e-bike-picture-id1338461762?s=612x612"
+          />
+        </div>
+      </template>
+
+      <template #content>
+        <div class="flex items-center">
+          <chip>All terrain bike</chip>
+
+          <div class="ml-auto">
+            <div class="bike-card__price"><span>25 €</span>/Day</div>
+          </div>
+        </div>
+      </template>
+    </card>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.bike-card {
+  position: relative;
+  max-width: 400px;
+
+  @include element('title') {
+    @apply .pb-2, .mb-2;
+
+    border-bottom: 1px solid get-theme-color('gray');
+  }
+
+  @include element('image') {
+    @apply .mb-4, .px-6, py-4;
+
+    height: 145px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  @include element('price') {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 23px;
+
+    span {
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 31px;
+    }
+  }
+}
+</style>
