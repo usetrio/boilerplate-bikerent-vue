@@ -1,4 +1,5 @@
 @use 'sass:map'as map;
+@use 'sass:list'as list;
 
 @use '@snug/core'as snug with ($breakpoints: $breakpoints);
 @use '@snug/modules' as snugModules;
@@ -27,6 +28,14 @@
 }
 
 @include snug.variants('responsive') using ($props...) {
+  // background
+  .bg {
+    /// background-color
+    @include snug.options($colors, $props...) using ($value) {
+      background-color: list.nth($value, 1);
+    }
+  }
+
   /// position
   @include snug.options($position, $props...) using ($value) {
     position: $value;
@@ -80,6 +89,10 @@
   }
 
   .text {
+    /// color
+    @include snug.options($colors, $props...) using ($value) {
+      color: list.nth($value, 1);
+    }
     /// text-align
     @include snug.options($text-align, $props...) using ($value) {
       text-align: $value;
