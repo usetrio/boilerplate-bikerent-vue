@@ -1,13 +1,20 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import Card from './Card.vue'
+import Card from '@/components/card/Card.vue'
 import { Chip } from '@/components/chip'
+import BikePrice, { PropCurrencyCode } from './BikePrice.vue'
 
 export default defineComponent({
   components: {
+    BikePrice,
     Card,
     Chip
+  },
+  computed: {
+    currency() {
+      return PropCurrencyCode.EUR
+    }
   }
 })
 </script>
@@ -17,15 +24,17 @@ export default defineComponent({
     <card>
       <template #title>
         <div class="bike-card__title">
-          <h3>Kent Flexer</h3>
+          <h3><a href="#">Kent Flexer</a></h3>
         </div>
       </template>
 
       <template #image>
         <div class="bike-card__image">
-          <img
-            src="https://media.istockphoto.com/photos/blue-modern-mens-mid-drive-motor-city-touring-or-trekking-e-bike-picture-id1338461762?s=612x612"
-          />
+          <a href="#">
+            <img
+              src="https://media.istockphoto.com/photos/blue-modern-mens-mid-drive-motor-city-touring-or-trekking-e-bike-picture-id1338461762?s=612x612"
+            />
+          </a>
         </div>
       </template>
 
@@ -34,7 +43,7 @@ export default defineComponent({
           <chip>All terrain bike</chip>
 
           <div class="ml-auto">
-            <div class="bike-card__price"><span>25 €</span>/Day</div>
+            <bike-price :price="25" :currency="currency" rate="daily" />
           </div>
         </div>
       </template>
@@ -63,18 +72,6 @@ export default defineComponent({
       height: 100%;
       object-fit: cover;
       object-position: center;
-    }
-  }
-
-  @include element('price') {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 23px;
-
-    span {
-      font-weight: 800;
-      font-size: 24px;
-      line-height: 31px;
     }
   }
 }

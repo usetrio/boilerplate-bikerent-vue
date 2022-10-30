@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import { BikeCard } from '@/components/card'
+import { BikeCard } from '@/components/bike'
 
 export default defineComponent({
   name: 'HomeView',
