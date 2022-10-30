@@ -40,7 +40,14 @@ module.exports = {
     'vue/component-name-in-template-casing': ['error', 'kebab-case', { registeredComponentsOnly: true }],
     'vue/multi-word-component-names': ['error', { ignores: ['Chip', 'Card', 'Icon'] }],
     'vue/no-unused-components': [productionRule],
-    'vue/no-unused-properties': [productionRule, { groups: ['props', 'computed', 'data'] }]
+    'vue/no-unused-properties': [productionRule, { groups: ['props', 'computed', 'data'] }],
+    'vue/require-name-property': 'error',
+    'vue/match-component-file-name': [
+      'error',
+      {
+        extensions: ['vue']
+      }
+    ]
   },
   overrides: [
     {

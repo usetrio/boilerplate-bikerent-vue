@@ -7,6 +7,7 @@ import BikePrice, { PropCurrencyCode } from './BikePrice.vue'
 import BikeBookmark from './BikeBookmark.vue'
 
 export default defineComponent({
+  name: 'BikeCard',
   components: {
     BikePrice,
     BikeBookmark,
