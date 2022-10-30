@@ -13,18 +13,6 @@ module.exports = {
     '@vue/eslint-config-typescript',
     '@vue/eslint-config-prettier'
   ],
-  overrides: [
-    {
-      files: ['cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'],
-      extends: ['plugin:cypress/recommended']
-    },
-    {
-      files: ['**/*.d.ts'],
-      rules: {
-        'no-unused-vars': 'off'
-      }
-    }
-  ],
   parserOptions: {
     ecmaVersion: 'latest'
   },
@@ -34,8 +22,13 @@ module.exports = {
     curly: 'error',
     'no-console': productionRule,
     'no-debugger': productionRule,
-    'no-unused-vars': [productionRule, { args: 'all', argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
     quotes: [productionRule, 'single', { allowTemplateLiterals: true }],
+
+    // Typescript
+    '@typescript-eslint/no-unused-vars': [
+      productionRule,
+      { args: 'all', argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
+    ],
 
     // Vue specific ruleset
     'vue/no-unused-vars': [productionRule, { ignorePattern: '^_' }],
@@ -48,5 +41,17 @@ module.exports = {
     'vue/multi-word-component-names': ['error', { ignores: ['Chip', 'Card'] }],
     'vue/no-unused-components': [productionRule],
     'vue/no-unused-properties': [productionRule, { groups: ['props', 'computed', 'data'] }]
-  }
+  },
+  overrides: [
+    {
+      files: ['*.js'],
+      rules: {
+        'no-unused-vars': [productionRule, { args: 'all', argsIgnorePattern: '^_', varsIgnorePattern: '^_' }]
+      }
+    },
+    {
+      files: ['cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'],
+      extends: ['plugin:cypress/recommended']
+    }
+  ]
 }
