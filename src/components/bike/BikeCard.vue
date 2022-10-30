@@ -4,13 +4,18 @@ import { defineComponent } from 'vue'
 import Card from '@/components/card/Card.vue'
 import { Chip } from '@/components/chip'
 import BikePrice, { PropCurrencyCode } from './BikePrice.vue'
+import BikeBookmark from './BikeBookmark.vue'
 
 export default defineComponent({
   components: {
     BikePrice,
+    BikeBookmark,
     Card,
     Chip
   },
+  data: () => ({
+    isBookmarked: false
+  }),
   computed: {
     currency() {
       return PropCurrencyCode.EUR
@@ -36,6 +41,10 @@ export default defineComponent({
             />
           </a>
         </div>
+
+        <div class="bike-card__bookmark">
+          <bike-bookmark v-model:active="isBookmarked" />
+        </div>
       </template>
 
       <template #content>
@@ -60,6 +69,13 @@ export default defineComponent({
     @apply .pb-2, .mb-2;
 
     border-bottom: 1px solid get-theme-color('gray');
+  }
+
+  @include element('bookmark') {
+    @apply .absolute;
+
+    right: 15px;
+    top: 15px;
   }
 
   @include element('image') {
