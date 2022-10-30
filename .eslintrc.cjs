@@ -38,7 +38,7 @@ module.exports = {
     'vue/require-prop-type-constructor': 'error',
     'vue/component-api-style': ['error', ['options']],
     'vue/component-name-in-template-casing': ['error', 'kebab-case', { registeredComponentsOnly: true }],
-    'vue/multi-word-component-names': ['error', { ignores: ['Chip', 'Card'] }],
+    'vue/multi-word-component-names': ['error', { ignores: ['Chip', 'Card', 'Icon'] }],
     'vue/no-unused-components': [productionRule],
     'vue/no-unused-properties': [productionRule, { groups: ['props', 'computed', 'data'] }]
   },
