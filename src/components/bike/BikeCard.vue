@@ -20,12 +20,25 @@ export default defineComponent({
     data: {
       type: Object as PropType<Bike>,
       required: true
+    },
+    fluid: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => ({
     isBookmarked: false
   }),
   computed: {
+    componentClasses() {
+      const classes = ['bike-card']
+
+      if (this.fluid) {
+        classes.push('bike-card--fluid')
+      }
+
+      return classes
+    },
     currency() {
       return PropCurrencyCode.EUR
     },
@@ -45,7 +58,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="bike-card">
+  <div :class="componentClasses">
     <card>
       <template #title>
         <div class="bike-card__title">
@@ -84,6 +97,10 @@ export default defineComponent({
 .bike-card {
   position: relative;
   max-width: 400px;
+
+  @include modifier('fluid') {
+    max-width: 100%;
+  }
 
   @include element('title') {
     @apply .pb-2, .mb-2;
