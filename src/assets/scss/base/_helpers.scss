@@ -82,11 +82,9 @@
   }
 
   /// grid
-  .grid {
-    &.grid-cols {
-      @include snug.options($grid-count, $props...) using ($value) {
-        grid-template-columns: $value;
-      }
+  .grid-cols {
+    @include snug.options($grid-count, $props...) using ($value) {
+      grid-template-columns: $value;
     }
   }
 
