@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="header container mx-auto">
+  <header class="header container mx-auto">
     <div class="header__content mx-auto md:px-24 py-10">
       <div class="container mx-auto">
         <div class="flex">
@@ -29,7 +29,7 @@ export default defineComponent({
         </div>
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <style lang="scss" scoped>

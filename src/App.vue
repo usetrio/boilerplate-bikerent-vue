@@ -4,6 +4,7 @@ import { defineComponent } from 'vue'
 import { HeaderLayout } from '@/components/layout'
 
 export default defineComponent({
+  name: 'App',
   components: {
     HeaderLayout
   },
@@ -22,9 +23,11 @@ export default defineComponent({
 
   <header-layout />
 
-  <div class="container mx-auto">
-    <RouterView />
-  </div>
+  <main class="main container mx-auto -mt-36">
+    <div class="main__content pt-16">
+      <RouterView />
+    </div>
+  </main>
 </template>
 
 <style scoped></style>

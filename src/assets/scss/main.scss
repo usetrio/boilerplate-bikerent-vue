@@ -27,10 +27,12 @@
 
 // 5. Layout-related sections
 @import 'layout/header',
-  'layout/navigation';
+  'layout/navigation',
+  'layout/content';
 
 // 6. Components
 @import 'components/button',
+  'components/card',
   'components/menu';
 
 

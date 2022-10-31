@@ -17,11 +17,9 @@ export default defineComponent({
 </script>
 
 <template>
-  <main>
-    <h2>Home</h2>
-
-    <div class="w-full">
+  <div class="page page--home">
+    <div class="grid grid-cols-3 gap-y-6 w-full">
       <bike-card />
     </div>
-  </main>
+  </div>
 </template>

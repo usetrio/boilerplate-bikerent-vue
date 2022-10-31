@@ -6,5 +6,6 @@
   border-bottom-right-radius: $border-radius-xl;
 
   @include element('content') {
+    min-height: 275px;
   }
 }

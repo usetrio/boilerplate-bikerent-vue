@@ -1,0 +1,6 @@
+.main {
+  @apply .px-24;
+
+  @include element('content') {
+  }
+}
