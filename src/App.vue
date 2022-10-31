@@ -23,7 +23,7 @@ export default defineComponent({
 
   <header-layout />
 
-  <main class="main container mx-auto -mt-36">
+  <main class="main container">
     <div class="main__content pt-16">
       <RouterView />
     </div>
