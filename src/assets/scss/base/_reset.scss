@@ -6,6 +6,16 @@
 
 @import "normalize.css";
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 /// headings
 @for $i from 1 through 7 {
   h#{$i} {
