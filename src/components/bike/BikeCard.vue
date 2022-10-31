@@ -69,7 +69,7 @@ export default defineComponent({
 
       <template #content>
         <div class="flex items-center">
-          <chip>All terrain bike</chip>
+          <chip color="secondary" size="xs">{{ data.type }}</chip>
 
           <div class="ml-auto">
             <bike-price :price="data.rate" :currency="currency" rate="daily" />

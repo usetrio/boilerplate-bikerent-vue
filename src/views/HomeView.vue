@@ -2,6 +2,7 @@
 import { defineComponent } from 'vue'
 
 import { BikeList } from '@/components/bike'
+import { mockedBikeList } from '@/mocks'
 
 export default defineComponent({
   name: 'HomeView',
@@ -12,12 +13,15 @@ export default defineComponent({
     return {
       title: 'Home - BikeRent Vue'
     }
-  }
+  },
+  data: () => ({
+    list: mockedBikeList
+  })
 })
 </script>
 
 <template>
   <div class="page page--home">
-    <bike-list :items="[]" />
+    <bike-list :items="list" />
   </div>
 </template>
