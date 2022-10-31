@@ -1,0 +1,6 @@
+const { VITE_API_CANDIDATE_TOKEN, VITE_API_URL } = import.meta.env || {}
+
+const API_URL = VITE_API_URL || ''
+const API_CANDIDATE_TOKEN = VITE_API_CANDIDATE_TOKEN || ''
+
+export { API_CANDIDATE_TOKEN, API_URL }
