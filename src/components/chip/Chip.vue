@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
 
-export type PropSize = 'xs | sm | base | lg | xl'
+export type PropSize = 'xs' | 'sm' | 'base' | 'lg' | 'xl'
 export type PropColor = 'gray' | 'primary' | 'secondary'
 
 export default defineComponent({
@@ -57,7 +57,7 @@ export default defineComponent({
   }
 
   @include modifier('xs') {
-    @apply .text-xs, .py-1, .px-2;
+    @apply .text-xs, .py-1;
     line-height: 12px;
   }
   @include modifier('sm') {
