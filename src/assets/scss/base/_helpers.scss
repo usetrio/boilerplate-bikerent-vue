@@ -5,7 +5,7 @@
 @use '@snug/modules' as snugModules;
 
 /// spacing classes (padding and margin)
-@include snugModules.spacing();
+@include snugModules.spacing((), $spacing);
 /// display helpers
 @include snugModules.display();
 /// flex classes
@@ -81,8 +81,37 @@
     }
   }
 
+  /// grid
+  .grid {
+    &.grid-cols {
+      @include snug.options($grid-count, $props...) using ($value) {
+        grid-template-columns: $value;
+      }
+    }
+  }
+
+  /// gap
+  .gap {
+    @include snug.options($spacing, $props...) using ($value) {
+      gap: $value;
+    }
+  }
+
+  .gap-x {
+    @include snug.options($spacing, $props...) using ($value) {
+      column-gap: $value;
+    }
+  }
+
+  .gap-y {
+    @include snug.options($spacing, $props...) using ($value) {
+      row-gap: $value;
+    }
+  }
+
+  /// typography
   .font {
-    // font-weight
+    /// font-weight
     @include snug.options($font-weight, $props...) using ($value) {
       font-weight: $value;
     }
