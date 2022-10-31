@@ -1,12 +1,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import { BikeCard } from '@/components/bike'
+import { BikeList } from '@/components/bike'
 
 export default defineComponent({
   name: 'HomeView',
   components: {
-    BikeCard
+    BikeList
   },
   metaInfo() {
     return {
@@ -18,8 +18,6 @@ export default defineComponent({
 
 <template>
   <div class="page page--home">
-    <div class="grid grid-cols-3 gap-y-6 w-full">
-      <bike-card />
-    </div>
+    <bike-list :items="[]" />
   </div>
 </template>

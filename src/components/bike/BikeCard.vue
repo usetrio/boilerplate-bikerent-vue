@@ -1,5 +1,7 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+/* global Bike */
+
+import { defineComponent, type PropType } from 'vue'
 
 import Card from '@/components/card/Card.vue'
 import { Chip } from '@/components/chip'
@@ -14,12 +16,29 @@ export default defineComponent({
     Card,
     Chip
   },
+  props: {
+    data: {
+      type: Object as PropType<Bike>,
+      required: true
+    }
+  },
   data: () => ({
     isBookmarked: false
   }),
   computed: {
     currency() {
       return PropCurrencyCode.EUR
+    },
+    image() {
+      const { cardImage } = this.data
+
+      if (cardImage) {
+        return cardImage
+      }
+
+      const [image] = this.data.imageUrls
+
+      return image
     }
   }
 })
@@ -30,16 +49,16 @@ export default defineComponent({
     <card>
       <template #title>
         <div class="bike-card__title">
-          <h3><a href="#">Kent Flexer</a></h3>
+          <h3>
+            <a href="#">{{ data.name }}</a>
+          </h3>
         </div>
       </template>
 
       <template #image>
         <div class="bike-card__image">
           <a href="#">
-            <img
-              src="https://media.istockphoto.com/photos/blue-modern-mens-mid-drive-motor-city-touring-or-trekking-e-bike-picture-id1338461762?s=612x612"
-            />
+            <img :src="image" />
           </a>
         </div>
 
@@ -53,7 +72,7 @@ export default defineComponent({
           <chip>All terrain bike</chip>
 
           <div class="ml-auto">
-            <bike-price :price="25" :currency="currency" rate="daily" />
+            <bike-price :price="data.rate" :currency="currency" rate="daily" />
           </div>
         </div>
       </template>
