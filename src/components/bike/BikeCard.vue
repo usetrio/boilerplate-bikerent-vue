@@ -7,6 +7,7 @@ import Card from '@/components/card/Card.vue'
 import { Chip } from '@/components/chip'
 import BikePrice, { PropCurrencyCode } from './BikePrice.vue'
 import BikeBookmark from './BikeBookmark.vue'
+import { ImageLazy } from '@/components/image'
 
 export default defineComponent({
   name: 'BikeCard',
@@ -14,7 +15,8 @@ export default defineComponent({
     BikePrice,
     BikeBookmark,
     Card,
-    Chip
+    Chip,
+    ImageLazy
   },
   props: {
     data: {
@@ -71,7 +73,7 @@ export default defineComponent({
       <template #image>
         <div class="bike-card__image">
           <a href="#">
-            <img :src="image" />
+            <image-lazy :src="image" />
           </a>
         </div>
 
