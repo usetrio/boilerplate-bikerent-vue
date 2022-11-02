@@ -2,9 +2,9 @@
 import { defineComponent, nextTick } from 'vue'
 
 import { BikeList } from '@/components/bike'
-import { mockedBikeList } from '@/mocks'
-import { client } from '@/core/api'
 import { LoadingSpinner } from '@/components/loading'
+
+import { useBikeStore, mapState, mapActions } from '@/core/store'
 
 export default defineComponent({
   name: 'HomeView',
@@ -18,18 +18,24 @@ export default defineComponent({
     }
   },
   data: () => ({
-    isLoading: false,
-    list: mockedBikeList
+    isLoading: false
   }),
+  computed: {
+    ...mapState(useBikeStore, ['list'])
+  },
   async mounted() {
     this.isLoading = true
-    // TODO: remove once state management is implemented
-    const { data } = await client.get('bikes/available')
 
-    this.list = data
+    this.fetchBikes()
+  },
+  methods: {
+    ...mapActions(useBikeStore, { fetchBikeList: 'fetchList' }),
+    async fetchBikes() {
+      await this.fetchBikeList()
+      await nextTick()
 
-    await nextTick()
-    this.isLoading = false
+      this.isLoading = false
+    }
   }
 })
 </script>
