@@ -1,11 +1,5 @@
 // import { ApiResponseError, client } from '@/core/api'
 import { client } from '@/core/api'
-
-// interface ApiError {
-//   message: string
-//   errorType: string
-// }
-
 interface BikeRent {
   rentAmount: number
   fee: 60
@@ -18,11 +12,6 @@ interface BikeRentDetails {
   dateFrom: string
   dateTo: string
 }
-
-// function handleApiError(err: Error | ApiResponseError) {
-//   if (error?.constructor === ApiResponseError) {
-//   }
-// }
 
 /**
  * List all Bikes (including rented)
@@ -54,8 +43,6 @@ export async function listAvailable(): Promise<Bike[]> {
  * @returns
  */
 export async function rent(details: BikeRentDetails): Promise<BikeRent> {
-  // let error: Maybe<ApiError>
-
   const { data } = await client.post<BikeRent>('bikes/rent', details)
 
   return data
