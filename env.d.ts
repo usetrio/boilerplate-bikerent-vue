@@ -3,6 +3,12 @@
 import type { AxiosError, AxiosInterceptorOptions, AxiosRequestConfig } from 'axios'
 import type { PluginCreator } from 'postcss'
 
+declare module 'pinia' {
+  export interface MapStoresCustomization {
+    suffix: ''
+  }
+}
+
 declare module 'postcss-extend-rule' {
   type RuleOptions = 'remove' | 'ignore' | 'warn' | 'throw'
   declare type pluginOptions = {
