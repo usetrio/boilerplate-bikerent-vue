@@ -5,40 +5,60 @@ import { defineConfig } from 'vite'
 import { extname } from 'node:path'
 import postcssExtend from 'postcss-extend-rule'
 import postcssNesting from 'postcss-nesting'
+import postcssPurgeCSS from '@fullhuman/postcss-purgecss'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue()],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        // NOTE: this option is not documented on Vite, but it is possible to use additionalData as function
-        // This helps to check what files we need to prepend CSS before parsing it. It is very useful for Vue components only.
-        // @see https://github.com/vitejs/vite/blob/177b427b1b0c72b06bddd860d14ff119cb22431f/packages/vite/src/node/plugins/css.ts#L1401-L1408
-        //
-        // WARNING: This may change in vite future versions. Project is using vite@3.2.0
-        additionalData(source: string, filename: string) {
-          let additionalData = ''
-          // Include clean stylesheet to add variables, mixins, functions and helpers to Vue <style> generated CSS.
-          if (extname(filename) === '.vue') {
-            additionalData = `
-              @import '@/assets/scss/component.scss';
-            `
-          }
+export default defineConfig(({ mode }) => {
+  const isProduction = mode === 'production'
 
-          return `${additionalData.trim()}\n${source}`
-        }
+  return {
+    plugins: [vue()],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url))
       }
     },
-    postcss: {
-      // TODO: check postcss nesting plugin
-      plugins: [autoprefixer, postcssExtend({ name: 'apply' }), postcssNesting()]
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // NOTE: this option is not documented on Vite, but it is possible to use additionalData as function
+          // This helps to check what files we need to prepend CSS before parsing it. It is very useful for Vue components only.
+          // @see https://github.com/vitejs/vite/blob/177b427b1b0c72b06bddd860d14ff119cb22431f/packages/vite/src/node/plugins/css.ts#L1401-L1408
+          //
+          // WARNING: This may change in vite future versions. Project is using vite@3.2.0
+          additionalData(source: string, filename: string) {
+            let additionalData = ''
+            // Include clean stylesheet to add variables, mixins, functions and helpers to Vue <style> generated CSS.
+            if (extname(filename) === '.vue') {
+              additionalData = `
+              @import '@/assets/scss/component.scss';
+            `
+            }
+
+            return `${additionalData.trim()}\n${source}`
+          }
+        }
+      },
+      postcss: {
+        plugins: [
+          autoprefixer,
+          postcssExtend({ name: 'apply' }),
+          // TODO: check postcss nesting plugin
+          postcssNesting(),
+          // TODO: check PostCSS setup to make sure to not remove some component classes, specially loading spinner component
+          isProduction &&
+            postcssPurgeCSS({
+              content: ['./**/*.html', './src/**/*.vue'],
+              defaultExtractor(content) {
+                const contentWithoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '')
+
+                return contentWithoutStyleBlocks.match(/[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g) || []
+              },
+              safelist: [/data-v-.*/]
+            })
+        ].filter((p) => !!p)
+      }
     }
   }
 })
