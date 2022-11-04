@@ -52,3 +52,9 @@ export default defineComponent({
     </template>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.page--home {
+  position: relative;
+}
+</style>
