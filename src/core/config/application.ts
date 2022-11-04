@@ -1,6 +1,7 @@
-const { VITE_API_CANDIDATE_TOKEN, VITE_API_URL } = import.meta.env || {}
+const { VITE_API_CANDIDATE_TOKEN, VITE_API_URL, BASE_URL: VITE_BASE_URL = '' } = import.meta.env || {}
 
+const BASE_URL = VITE_BASE_URL || '/'
 const API_URL = VITE_API_URL || ''
 const API_CANDIDATE_TOKEN = VITE_API_CANDIDATE_TOKEN || ''
 
-export { API_CANDIDATE_TOKEN, API_URL }
+export { API_CANDIDATE_TOKEN, API_URL, BASE_URL }
