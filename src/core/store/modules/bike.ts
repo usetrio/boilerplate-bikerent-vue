@@ -17,11 +17,17 @@ export default defineStore({
   getters: {
     list(state) {
       return Object.values<Bike>(state.items)
+    },
+    getBike(state) {
+      return (id: number) => state.items[id] || null
     }
   },
   actions: {
+    /**
+     * fechs list of
+     */
     async fetchList() {
-      const result = await bike.list()
+      const result = await bike.list(true)
 
       result.forEach((i) => {
         this.items = {

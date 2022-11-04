@@ -14,11 +14,22 @@ interface BikeRentDetails {
 }
 
 /**
- * List all Bikes (including rented)
+ * List Bikes
+ *
+ * @param {boolean} [available=false] List only available bikes for renting
  *
  * @returns {Promise<Bike[]>}
  */
-export async function list(): Promise<Bike[]> {
+export async function list(available = false): Promise<Bike[]> {
+  return available ? await listAvailable() : await listAll()
+}
+
+/**
+ * Lists all bikes.
+ *
+ * @returns {Promise<Bike[]>}
+ */
+export async function listAll(): Promise<Bike[]> {
   const { data } = await client.get<Bike[]>('bikes')
 
   return data
