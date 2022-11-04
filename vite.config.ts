@@ -3,6 +3,7 @@ import { URL, fileURLToPath } from 'node:url'
 import autoprefixer from 'autoprefixer'
 import { defineConfig } from 'vite'
 import { extname } from 'node:path'
+import postcssDiscardComments from 'postcss-discard-comments'
 import postcssExtend from 'postcss-extend-rule'
 import postcssNesting from 'postcss-nesting'
 import postcssPurgeCSS from '@fullhuman/postcss-purgecss'
@@ -32,7 +33,10 @@ export default defineConfig(({ mode }) => {
             // Include clean stylesheet to add variables, mixins, functions and helpers to Vue <style> generated CSS.
             if (extname(filename) === '.vue') {
               additionalData = `
-              @import '@/assets/scss/component.scss';
+              @use '@/assets/scss/themes/default' as theme;
+
+              @use '@/assets/scss/abstract' as * with($colors: theme.$colors);
+              @use '@/assets/scss/base/helpers' as *;
             `
             }
 
@@ -46,6 +50,7 @@ export default defineConfig(({ mode }) => {
           postcssExtend({ name: 'apply' }),
           // TODO: check postcss nesting plugin
           postcssNesting(),
+          postcssDiscardComments({ removeAll: true }),
           // TODO: check PostCSS setup to make sure to not remove some component classes, specially loading spinner component
           isProduction &&
             postcssPurgeCSS({

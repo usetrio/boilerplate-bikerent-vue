@@ -1,13 +1,13 @@
-/**
- * Functions
- * =================================
- *
- * Custom SASS methods to help CSS development.
- */
+/// Functions
+/// =================================
+///
+/// Custom SASS methods to help CSS development.
 
 @use 'sass:map' as map;
 @use 'sass:list' as list;
 @use 'sass:meta' as meta;
+
+@use 'variables' as *;
 
 /// get theme color
 ///

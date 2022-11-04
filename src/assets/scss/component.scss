@@ -5,19 +5,6 @@
 ///
 ///
 
-// 1. Configuration and helpers
-@import
-  'abstract/variables',
-  'abstract/functions',
-  'abstract/mixins';
+@forward 'abstract';
 
-// 2. Vendors
-@import
- 'vendors/sass-bem-mixins';
-
-// 3. Theming
-@import '@/assets/scss/themes/deafult';
-
-// 3. Base stuff
-@import
-'base/helpers';
+@import 'themes/default';

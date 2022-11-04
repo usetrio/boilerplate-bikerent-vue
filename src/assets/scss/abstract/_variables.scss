@@ -1,17 +1,20 @@
-/**
- * Variables
- * =================================
- * - Typography
- * - Breakpoints
- * - Paths
- * - Layout & Grid
- * - App-specific
- */
+/// Variables
+/// =================================
+/// - Typography
+/// - Breakpoints
+/// - Paths
+/// - Layout & Grid
+/// - App-specific
 
 @use 'sass:map';
 
+$fonts: (
+  'mont': (Mont, sans-serif),
+  'sf-pro': ('SF Pro Display', sans-serif)
+) !default;
+
 $font-size-base: 16px !default;
-$font-family-base: 'Montserrat', sans-serif;
+$font-family-base: map.get($fonts, 'mont') !default;
 
 $colors: (
   'black': [#000],
@@ -37,14 +40,14 @@ $breakpoints: (
   'lg': 1024px,
   'xl': 1280px,
   'xxl': 1440px
-);
+) !default;
 
 $position: (
   'relative': relative,
   'absolute': absolute,
   'static': static,
   'sticky': sticky
-);
+) !default;
 
 $sizing: (
   '0': 0,
@@ -52,24 +55,24 @@ $sizing: (
   'min': min-content,
   'max': max-content,
   'fit': fit-content
-);
+) !default;
 
-$sizing-width: map.merge(('screen': '100vw'), $sizing);
-$sizing-height: map.merge(('screen': '100vh'), $sizing);
+$sizing-width: map.merge(('screen': '100vw'), $sizing) !default;
+$sizing-height: map.merge(('screen': '100vh'), $sizing) !default;
 
 $overflow: (
   'hidden': hidden,
   'scroll': scroll,
   'visible': visible,
   'auto': auto
-);
+) !default;
 
 $text-align: (
   'left': left,
   'right': right,
   'center': center,
   'justify': justify
-);
+) !default;
 
 $font-weight: (
   'thin': 100,
@@ -81,7 +84,7 @@ $font-weight: (
   'bold': 700,
   'extrabold': 800,
   'black': 900
-);
+) !default;
 
 $text-size: (
   'xs': 0.75rem,
@@ -97,7 +100,7 @@ $text-size: (
   '7xl': 4.5rem,
   '8xl': 6rem,
   '9xl': 8rem
-);
+) !default;
 
 $spacing: (
   'px': 1px,
@@ -121,10 +124,10 @@ $spacing: (
   '48': 12rem,
   '56': 14rem,
   '64': 16rem,
-);
+) !default;
 
 $grid-count: (
   '2': repeat(2, 1fr),
   '3': repeat(3, 1fr),
   '4': repeat(4, 1fr)
-)
+) !default;

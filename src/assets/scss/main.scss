@@ -5,35 +5,23 @@
 
 @charset "utf-8";
 
-// 1. Configuration and helpers
-@import 'abstract/variables',
-  'abstract/functions',
-  'abstract/mixins';
+// 1. Themes Configuration
+@use 'themes/default' as theme;
 
-// 2. Vendors
-@import
-  'vendors/font-awesome',
- 'vendors/sass-bem-mixins';
+// 2. Configuration and helpers
+@use 'abstract' with ($colors: theme.$colors);
 
-// 3. Themes
-@import 'themes/deafult';
+// 3. Vendors
+@use 'vendors';
 
 // 4. Base stuff
-@import 'base/reset',
-  'base/fonts',
-  'base/typography',
-  'base/base',
-  'base/helpers';
+@use 'base';
 
 // 5. Layout-related sections
-@import 'layout/header',
-  'layout/navigation',
-  'layout/content';
+@use 'layout';
 
 // 6. Components
-@import 'components/button',
-  'components/card',
-  'components/menu';
-
+@use 'components';
 
 // 7. Page-specific styles
+@use 'pages';

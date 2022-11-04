@@ -1,3 +1,5 @@
+@use '../abstract' as *;
+
 .main {
   @apply .mx-auto, .-mt-36, .px-6, .md\:px-10, .lg\:px-24, .pb-22;
 

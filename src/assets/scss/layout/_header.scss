@@ -1,3 +1,5 @@
+@use '../abstract' as *;
+
 .header {
   background-color: get-theme-color('primary');
   color: get-theme-color('white');

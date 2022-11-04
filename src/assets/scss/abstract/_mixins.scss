@@ -1,6 +1,12 @@
-/**
- * Mixins
- * =================================
- *
- * Set of useful SASS mixins to help CSS development.
- */
+/// Mixins
+/// =================================
+///
+/// Set of useful SASS mixins to help CSS development.
+///
+
+@use 'variables' as *;
+
+@forward '@snug/core' as snug-* with ($breakpoints: $breakpoints);
+@forward '@snug/modules' as snug-*;
+
+@forward 'sass-bem-mixins/index';

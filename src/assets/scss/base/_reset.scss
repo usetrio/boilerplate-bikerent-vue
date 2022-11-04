@@ -4,7 +4,7 @@
  * CSS resets elements
  */
 
-@import "normalize.css";
+@use "normalize.css/normalize.css";
 
 html {
   box-sizing: border-box;
