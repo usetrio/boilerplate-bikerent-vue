@@ -22,10 +22,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .card {
-  @apply .p-5;
-
   position: relative;
-  border-radius: $border-radius-xl;
-  border: 1px solid get-theme-color('gray');
 }
 </style>
