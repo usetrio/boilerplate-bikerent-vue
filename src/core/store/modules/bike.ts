@@ -18,7 +18,7 @@ export default defineStore({
     list(state) {
       return Object.values<Bike>(state.items)
     },
-    getBike(state) {
+    getBikeById(state) {
       return (id: number) => state.items[id] || null
     }
   },
