@@ -47,7 +47,8 @@ module.exports = {
       {
         extensions: ['vue']
       }
-    ]
+    ],
+    'vue/v-for-delimiter-style': ['error', 'in']
   },
   overrides: [
     {
