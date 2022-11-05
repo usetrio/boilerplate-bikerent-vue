@@ -1,4 +1,6 @@
-# BikeRent | Work In Progress
+# Bike Rental Boilerplate - VueJS
+
+![VueJS](https://img.shields.io/badge/vue-3.2.41-green?style=flat-square) ![Options API](https://img.shields.io/badge/-Options%20API-yellowgreen?style=flat-square) ![TypeScript](https://img.shields.io/badge/-TypeScript-blue?style=flat-square)
 
 This project was created for the Trio Challenge, where candidates must create a functional system to rent bikes.
 
