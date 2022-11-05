@@ -132,3 +132,10 @@ $grid-count: (
   '3': repeat(3, 1fr),
   '4': repeat(4, 1fr)
 ) !default;
+
+$aspect-ratio: (
+  'auto': auto,
+  '4-3': "4/3",
+  'square': "1/1",
+  'wide': "16/9"
+);

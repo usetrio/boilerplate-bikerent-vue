@@ -127,5 +127,11 @@
       font-size: $value;
     }
   }
+
+  .aspect {
+    @include snug-options($aspect-ratio, $props...) using ($value) {
+      aspect-ratio: #{$value};
+    }
+  }
 }
 
