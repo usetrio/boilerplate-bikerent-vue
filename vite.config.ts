@@ -37,7 +37,7 @@ export default defineConfig(({ mode }) => {
 
               @use '@/assets/scss/abstract' as * with($colors: theme.$colors);
               /// if component is using @apply CSS helper, inject CSS utility classes
-              ${source.match(/\b@apply\b/) ? `@use '@/assets/scss/base/helpers' as *;` : ''}
+              ${source.match(/@apply\b/) ? `@use '@/assets/scss/base/helpers' as *;` : ''}
               `
             }
 
