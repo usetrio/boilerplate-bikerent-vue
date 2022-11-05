@@ -3,13 +3,14 @@ import { useBikeStore, mapActions, mapState } from '@/core/store'
 import { defineComponent } from 'vue'
 
 import { LoadingSpinner } from '@/components/loading'
-import { BikeImageSelector } from '@/components/bike'
+import { BikeImageSelector, BikeSpecs, type BikeSpecsProps } from '@/components/bike'
 
 export default defineComponent({
   name: 'DetailsView',
   components: {
     LoadingSpinner,
-    BikeImageSelector
+    BikeImageSelector,
+    BikeSpecs
   },
   data: () => ({
     isLoading: false
@@ -26,6 +27,15 @@ export default defineComponent({
     },
     images() {
       return this.data?.imageUrls || []
+    },
+    specs(): BikeSpecsProps {
+      const { bodySize, maxLoad, ratings } = this.data || {}
+
+      return {
+        bodySize,
+        maxLoad,
+        ratings
+      }
     }
   },
   watch: {},
@@ -52,7 +62,9 @@ export default defineComponent({
     <template v-else>
       <div class="grid gap-x-6 grid-cols-1">
         <div class="card">
-          <bike-image-selector :images="images" />
+          <bike-image-selector :images="images" class="mb-8" />
+
+          <bike-specs :specs="specs" />
         </div>
         <div class="card"></div>
       </div>
