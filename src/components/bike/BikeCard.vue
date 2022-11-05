@@ -32,6 +32,9 @@ export default defineComponent({
     isBookmarked: false
   }),
   computed: {
+    id() {
+      return this.data.id
+    },
     componentClasses() {
       const classes = ['bike-card']
 
@@ -65,16 +68,16 @@ export default defineComponent({
       <template #title>
         <div class="bike-card__title">
           <h3>
-            <a href="#">{{ data.name }}</a>
+            <router-link :to="{ name: 'details', params: { id } }">{{ data.name }}</router-link>
           </h3>
         </div>
       </template>
 
       <template #image>
         <div class="bike-card__image">
-          <a href="#">
+          <router-link :to="{ name: 'details', params: { id } }">
             <image-lazy :src="image" />
-          </a>
+          </router-link>
         </div>
 
         <div class="bike-card__bookmark">
