@@ -3,16 +3,19 @@ import { useBikeStore, mapActions, mapState } from '@/core/store'
 import { defineComponent } from 'vue'
 
 import { LoadingSpinner } from '@/components/loading'
+import { BikeImageSelector } from '@/components/bike'
 
 export default defineComponent({
   name: 'DetailsView',
   components: {
-    LoadingSpinner
+    LoadingSpinner,
+    BikeImageSelector
   },
   data: () => ({
     isLoading: false
   }),
   computed: {
+    ...mapState(useBikeStore, ['getBikeById']),
     id() {
       const { id } = this.$route.params || {}
 
@@ -21,7 +24,9 @@ export default defineComponent({
     data() {
       return (this.id && this.getBikeById(this.id)) || null
     },
-    ...mapState(useBikeStore, ['getBikeById'])
+    images() {
+      return this.data?.imageUrls || []
+    }
   },
   watch: {},
   async beforeMount() {
@@ -46,7 +51,9 @@ export default defineComponent({
     </template>
     <template v-else>
       <div class="grid gap-x-6 grid-cols-1">
-        <div class="card"></div>
+        <div class="card">
+          <bike-image-selector :images="images" />
+        </div>
         <div class="card"></div>
       </div>
     </template>
