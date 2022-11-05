@@ -60,7 +60,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <img ref="image" class="image-lazy" />
+  <img ref="image" class="image image--lazy" />
 </template>
 
 <style lang="scss" scoped>
