@@ -34,7 +34,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div v-if="hasImages" class="bike-image-selector">
+  <section v-if="hasImages" class="bike-image-selector">
     <div class="grid grid-cols-1 gap-8">
       <div class="bike-image-selector__images">
         <template v-for="(image, i) in images" :key="`image-${i}`">
@@ -56,7 +56,7 @@ export default defineComponent({
         />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>

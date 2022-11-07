@@ -19,7 +19,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="bike-specs">
+  <section class="bike-specs">
     <div class="grid grid-cols-3 p-4">
       <div class="bike-specs__spec text-center">
         <h5 class="bike-specs__spec__title">Body Size</h5>
@@ -34,7 +34,7 @@ export default defineComponent({
         <strong>{{ specs.ratings }}</strong>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
