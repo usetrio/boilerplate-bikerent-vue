@@ -5,8 +5,8 @@ import { defineComponent } from 'vue'
 import { LoadingSpinner } from '@/components/loading'
 import { BikeImageSelector, BikeSpecs, type BikeSpecsProps, BikePrice } from '@/components/bike'
 import { Chip } from '@/components/chip'
-import { PropCurrencyCode } from '@/components/bike/BikePrice.vue'
-import { BookingAddressMap } from '@/components/booking'
+import { BookingAddressMap, BookingPricing } from '@/components/booking'
+import { CurrencyCode } from '@/core/config'
 
 export default defineComponent({
   name: 'DetailsView',
@@ -16,11 +16,12 @@ export default defineComponent({
     BikeSpecs,
     BikePrice,
     Chip,
-    BookingAddressMap
+    BookingAddressMap,
+    BookingPricing
   },
   data: () => ({
     isLoading: false,
-    currency: PropCurrencyCode.EUR,
+    currency: CurrencyCode.EUR,
     mockAddress: '745 Atlantic Ave, Boston, MA 02111, United States'
   }),
   computed: {
@@ -102,9 +103,19 @@ export default defineComponent({
             <div class="divider" />
           </section>
 
-          <booking-address-map :address="mockAddress" />
+          <div class="w-full">
+            <h4 class="text-2xl font-extrabold mb-4">Full adress after booking</h4>
+            <booking-address-map :address="mockAddress" />
+          </div>
         </div>
-        <div class="card"></div>
+
+        <div class="card">
+          <h3 class="text-base mb-4">Booking Overview</h3>
+
+          <div class="divider" />
+
+          <booking-pricing :price="data!.rate" :currency="currency" />
+        </div>
       </div>
     </template>
   </div>
