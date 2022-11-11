@@ -1,13 +1,9 @@
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
 
+import type { CurrencyCode } from '@/core/config'
+
 export type PropRate = 'daily' | 'weekly' | 'monthly' | 'anually' | 'none'
-export enum PropCurrencyCode {
-  USD = 'USD',
-  CAD = 'CAD',
-  EUR = 'EUR',
-  BRL = 'BRL'
-}
 
 export default defineComponent({
   name: 'BikePrice',
@@ -17,7 +13,7 @@ export default defineComponent({
       required: true
     },
     currency: {
-      type: String as PropType<PropCurrencyCode>,
+      type: String as PropType<CurrencyCode>,
       required: true
     },
     rate: {
