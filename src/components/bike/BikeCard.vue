@@ -1,13 +1,13 @@
 <script lang="ts">
 /* global Bike */
-
 import { defineComponent, type PropType } from 'vue'
 
 import Card from '@/components/card/Card.vue'
 import { Chip } from '@/components/chip'
-import BikePrice, { PropCurrencyCode } from './BikePrice.vue'
+import BikePrice from './BikePrice.vue'
 import BikeBookmark from './BikeBookmark.vue'
 import { ImageLazy } from '@/components/image'
+import { CurrencyCode } from '@/core/config'
 
 export default defineComponent({
   name: 'BikeCard',
@@ -45,7 +45,7 @@ export default defineComponent({
       return classes
     },
     currency() {
-      return PropCurrencyCode.EUR
+      return CurrencyCode.EUR
     },
     image() {
       const { cardImage } = this.data
