@@ -5,17 +5,19 @@ export enum IconType {
   REGULAR = 'regular',
   SOLID = 'solid'
 }
-export type IconSize = 'xs' | 'sm' | 'base' | 'lg' | 'xl'
+
+export type PropIconSize = 'xs' | 'sm' | 'base' | 'lg' | 'xl'
+export type PropIconType = `${IconType}`
 
 export default defineComponent({
   name: 'Icon',
   props: {
     type: {
-      type: String as PropType<IconType>,
+      type: String as PropType<PropIconType>,
       default: IconType.REGULAR
     },
     size: {
-      type: String as PropType<IconSize>,
+      type: String as PropType<PropIconSize>,
       default: 'base'
     }
   },

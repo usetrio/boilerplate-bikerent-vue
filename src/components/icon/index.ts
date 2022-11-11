@@ -1,1 +1,1 @@
-export { default as Icon, IconType, type IconSize } from './Icon.vue'
+export { default as Icon, IconType, type PropIconSize, type PropIconType } from './Icon.vue'
