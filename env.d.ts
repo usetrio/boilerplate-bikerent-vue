@@ -24,8 +24,8 @@ declare module 'postcss-extend-rule' {
 }
 
 declare global {
-  declare type Maybe<T> = T | null | undefined
-  declare interface Bike {
+  type Maybe<T> = T | null | undefined
+  interface Bike {
     id: number
     candidateId: number
     name: string
@@ -40,13 +40,13 @@ declare global {
     city?: string
   }
 
-  declare type AxiosRequestInterceptor = [
+  type AxiosRequestInterceptor = [
     ((value: AxiosRequestConfig) => AxiosRequestConfig | Promise<AxiosRequestConfig>)?,
     ((error: ant) => any)?,
     AxiosInterceptorOptions?
   ]
 
-  declare type AxiosResponseInterceptor = [
+  type AxiosResponseInterceptor = [
     ((value: AxiosResponse) => AxiosResponse | Promise<AxiosResponse>)?,
     ((error: AxiosError) => Promise<never>)?,
     AxiosInterceptorOptions?
