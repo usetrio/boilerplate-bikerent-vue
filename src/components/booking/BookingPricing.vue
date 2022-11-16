@@ -42,7 +42,7 @@ export default defineComponent({
 
 <template>
   <section class="booking-pricing">
-    <div class="grid grid-cols-2 gap-y-3">
+    <div class="grid grid-cols-2 gap-y-3 text-sm">
       <div class="flex items-center">
         Subtotal
         <icon type="solid" size="xs" class="ml-1">circle-info</icon>
@@ -55,7 +55,7 @@ export default defineComponent({
       </div>
       <div class="text-right">{{ formatPrice(serviceFee) }}</div>
 
-      <div class="flex items-center">Total</div>
+      <div class="flex items-center text-base">Total</div>
       <div class="text-right text-2xl font-bold">{{ formatPrice(total) }}</div>
     </div>
   </section>

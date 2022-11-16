@@ -59,7 +59,13 @@ export default defineComponent({
     }
   },
   methods: {
-    ...mapActions(useBikeStore, { fetchBikeList: 'fetchList' })
+    ...mapActions(useBikeStore, { fetchBikeList: 'fetchList' }),
+    handleAddBooking() {
+      // TODO: add booking action
+
+      // eslint-disable-next-line no-console
+      console.log('booking action')
+    }
   }
 })
 </script>
@@ -76,45 +82,51 @@ export default defineComponent({
     </template>
     <template v-else>
       <div class="grid gap-x-6 grid-cols-1">
-        <div class="card">
-          <bike-image-selector :images="images" class="mb-8" />
+        <div>
+          <div class="card p-8">
+            <bike-image-selector :images="images" class="mb-8" />
 
-          <bike-specs :specs="specs" />
+            <bike-specs :specs="specs" />
 
-          <div class="divider" />
-
-          <article>
-            <h2 class="font-extrabold text-4xl">{{ data!.name }}</h2>
-            <chip color="secondary" size="sm">{{ data!.type }}</chip>
-
-            <p>{{ data!.description }}</p>
-          </article>
-
-          <section class="pricing">
             <div class="divider" />
-            <div class="flex">
-              <div class="font-semibold">Day</div>
-              <bike-price :price="data!.rate" :currency="currency" rate="daily" class="ml-auto" />
-            </div>
-            <div class="flex">
-              <div class="font-semibold">Week</div>
-              <bike-price :price="data!.rate * 7" :currency="currency" rate="weekly" class="ml-auto" />
-            </div>
-            <div class="divider" />
-          </section>
 
-          <div class="w-full">
-            <h4 class="text-2xl font-extrabold mb-4">Full adress after booking</h4>
-            <booking-address-map :address="mockAddress" />
+            <article>
+              <h2 class="font-extrabold text-4xl">{{ data!.name }}</h2>
+              <chip color="secondary" size="sm">{{ data!.type }}</chip>
+
+              <p>{{ data!.description }}</p>
+            </article>
+
+            <section class="pricing">
+              <div class="divider" />
+              <div class="flex">
+                <div class="font-semibold">Day</div>
+                <bike-price :price="data!.rate" :currency="currency" rate="daily" class="ml-auto" />
+              </div>
+              <div class="flex">
+                <div class="font-semibold">Week</div>
+                <bike-price :price="data!.rate * 7" :currency="currency" rate="weekly" class="ml-auto" />
+              </div>
+              <div class="divider" />
+            </section>
+
+            <div class="w-full">
+              <h4 class="text-2xl font-extrabold mb-4">Full adress after booking</h4>
+              <booking-address-map :address="mockAddress" />
+            </div>
           </div>
         </div>
 
-        <div class="card">
-          <h3 class="text-base mb-4">Booking Overview</h3>
+        <div>
+          <div class="card p-8">
+            <h3 class="text-base mb-4">Booking Overview</h3>
 
-          <div class="divider" />
+            <div class="divider" />
 
-          <booking-pricing :price="data!.rate" :currency="currency" />
+            <booking-pricing :price="data!.rate" :currency="currency" class="mb-8" />
+
+            <button class="button button--primary w-full py-5" @click="handleAddBooking">Add to booking</button>
+          </div>
         </div>
       </div>
     </template>
