@@ -25,7 +25,7 @@ export default defineComponent({
 
   <main class="main container">
     <div class="main__content pt-16">
-      <RouterView />
+      <router-view />
     </div>
   </main>
 </template>

@@ -33,11 +33,10 @@ module.exports = {
     // Vue specific ruleset
     'vue/no-unused-vars': [productionRule, { ignorePattern: '^_' }],
     'vue/order-in-components': 'error',
-    'vue/prop-name-casing': 'error',
     'vue/require-default-prop': 'error',
     'vue/require-prop-type-constructor': 'error',
     'vue/component-api-style': ['error', ['options']],
-    'vue/component-name-in-template-casing': ['error', 'kebab-case', { registeredComponentsOnly: true }],
+    'vue/component-name-in-template-casing': ['error', 'kebab-case', { registeredComponentsOnly: false }],
     'vue/multi-word-component-names': ['error', { ignores: ['Chip', 'Card', 'Icon'] }],
     'vue/no-unused-components': [productionRule],
     'vue/no-unused-properties': [productionRule, { groups: ['props', 'computed', 'data'] }],
