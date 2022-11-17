@@ -11,7 +11,9 @@ export default defineComponent({
     <div class="header__content mx-auto md:px-24 py-10">
       <div class="container mx-auto">
         <div class="flex">
-          <h1 class="my-0 text-5xl font-extrabold">Bike Rental</h1>
+          <h1 class="my-0 text-5xl font-extrabold">
+            <router-link :to="{ name: 'home' }" class="button button--primary button--text">Bike Rental</router-link>
+          </h1>
 
           <div class="navigation ml-auto">
             <nav class="menu">
