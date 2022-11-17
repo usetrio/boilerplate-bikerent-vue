@@ -1,6 +1,6 @@
 <script lang="ts">
 import { Icon, IconType } from '@/components/icon'
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 
 export default defineComponent({
   name: 'BikeBookmark',
@@ -11,12 +11,40 @@ export default defineComponent({
     active: {
       type: Boolean,
       default: false
+    },
+    outlined: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: String as PropType<UISizing | UISizingType>,
+      default: 'base'
+    },
+    width: {
+      type: Number,
+      default: 0
     }
   },
   emits: ['update:active'],
   computed: {
     iconType() {
       return this.active ? IconType.SOLID : IconType.REGULAR
+    },
+    componentClasses() {
+      const classes: UICSSClass = []
+
+      classes.push({ 'bike-bookmark--outlined': this.outlined })
+
+      return classes
+    },
+    componentStyle() {
+      const style: UICSSProperties = {}
+
+      if (this.width) {
+        style.width = `${this.width}px`
+      }
+
+      return style
     }
   },
   methods: {
@@ -28,8 +56,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="bike-bookmark" @click.prevent="handleToggleActive">
-    <icon :type="iconType" size="xl">heart</icon>
+  <div :class="componentClasses" :style="componentStyle" class="bike-bookmark" @click.prevent="handleToggleActive">
+    <icon :type="iconType" :size="size">heart</icon>
   </div>
 </template>
 
@@ -37,5 +65,13 @@ export default defineComponent({
 .bike-bookmark {
   position: relative;
   cursor: pointer;
+  aspect-ratio: 1;
+
+  @include modifier('outlined') {
+    @apply .p-3, .inline-flex, .items-center, .justify-center;
+
+    border: 1px solid get-theme-color('gray');
+    border-radius: $border-radius-md;
+  }
 }
 </style>

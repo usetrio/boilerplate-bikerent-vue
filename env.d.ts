@@ -2,6 +2,7 @@
 
 import type { AxiosError, AxiosInterceptorOptions, AxiosRequestConfig } from 'axios'
 import type { PluginCreator } from 'postcss'
+import { type CSSProperties } from 'vue'
 
 declare module 'pinia' {
   export interface MapStoresCustomization {
