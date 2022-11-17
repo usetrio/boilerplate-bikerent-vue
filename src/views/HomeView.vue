@@ -24,7 +24,9 @@ export default defineComponent({
     ...mapState(useBikeStore, ['list'])
   },
   async mounted() {
-    this.isLoading = true
+    if (!this.list.length) {
+      this.isLoading = true
+    }
 
     this.fetchBikes()
   },
