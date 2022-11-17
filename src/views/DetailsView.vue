@@ -3,7 +3,7 @@ import { useBikeStore, mapActions, mapState } from '@/core/store'
 import { defineComponent } from 'vue'
 
 import { LoadingSpinner } from '@/components/loading'
-import { BikeImageSelector, BikeSpecs, type BikeSpecsProps, BikePrice } from '@/components/bike'
+import { BikeImageSelector, BikeSpecs, type BikeSpecsProps, BikePrice, BikeBookmark } from '@/components/bike'
 import { Chip } from '@/components/chip'
 import { BookingAddressMap, BookingPricing } from '@/components/booking'
 import { CurrencyCode } from '@/core/config'
@@ -17,12 +17,14 @@ export default defineComponent({
     BikePrice,
     Chip,
     BookingAddressMap,
-    BookingPricing
+    BookingPricing,
+    BikeBookmark
   },
   data: () => ({
     isLoading: false,
     currency: CurrencyCode.EUR,
-    mockAddress: '745 Atlantic Ave, Boston, MA 02111, United States'
+    mockAddress: '745 Atlantic Ave, Boston, MA 02111, United States',
+    isBookmarked: false
   }),
   computed: {
     ...mapState(useBikeStore, ['getBikeById']),
@@ -91,8 +93,16 @@ export default defineComponent({
             <div class="divider" />
 
             <article>
-              <h2 class="font-extrabold text-4xl">{{ data!.name }}</h2>
-              <chip color="secondary" size="sm">{{ data!.type }}</chip>
+              <div class="flex">
+                <div>
+                  <h2 class="font-extrabold text-4xl">{{ data!.name }}</h2>
+                  <chip color="secondary" size="sm">{{ data!.type }}</chip>
+                </div>
+
+                <div class="ml-auto">
+                  <bike-bookmark v-model:active="isBookmarked" :width="60" size="2xl" outlined />
+                </div>
+              </div>
 
               <p>{{ data!.description }}</p>
             </article>
