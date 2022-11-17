@@ -6,7 +6,6 @@ export enum IconType {
   SOLID = 'solid'
 }
 
-export type PropIconSize = 'xs' | 'sm' | 'base' | 'lg' | 'xl'
 export type PropIconType = `${IconType}`
 
 export default defineComponent({
@@ -17,7 +16,7 @@ export default defineComponent({
       default: IconType.REGULAR
     },
     size: {
-      type: String as PropType<PropIconSize>,
+      type: String as PropType<UISizing | UISizingType>,
       default: 'base'
     }
   },
@@ -32,7 +31,7 @@ export default defineComponent({
       return (icon.children as String).trim()
     },
     componentClass() {
-      return ['icon', `icon--${this.size}`]
+      return ['icon', `text-${this.size}`]
     },
     computedClass() {
       const classes = [`fa-${this.type}`]
@@ -57,18 +56,5 @@ export default defineComponent({
 .icon {
   @apply .inline-block, .text-base;
   position: relative;
-
-  @include modifier('xs') {
-    @apply .text-xs;
-  }
-  @include modifier('sm') {
-    @apply .text-sm;
-  }
-  @include modifier('lg') {
-    @apply .text-lg;
-  }
-  @include modifier('xl') {
-    @apply .text-xl;
-  }
 }
 </style>
