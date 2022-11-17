@@ -51,7 +51,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.js'],
+      files: ['*.{js,jsx|mjs|cjs}'],
       rules: {
         'no-unused-vars': [productionRule, { args: 'all', argsIgnorePattern: '^_', varsIgnorePattern: '^_' }]
       }
@@ -59,6 +59,12 @@ module.exports = {
     {
       files: ['cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'],
       extends: ['plugin:cypress/recommended']
+    },
+    {
+      files: ['*.{ts,vue}'],
+      rules: {
+        'no-undef': 'off'
+      }
     }
   ]
 }
