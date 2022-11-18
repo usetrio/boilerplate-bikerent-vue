@@ -50,6 +50,10 @@ $position: (
   'sticky': sticky
 ) !default;
 
+$position-element: (
+  '0': 0px,
+) !default;
+
 $sizing: (
   '0': 0,
   'full': 100%,

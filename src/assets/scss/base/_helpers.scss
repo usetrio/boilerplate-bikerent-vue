@@ -39,6 +39,27 @@
     position: $value;
   }
 
+  .top {
+    @include snug-options($position-element, $props...) using ($value) {
+      top: $value;
+    }
+  }
+  .bottom {
+    @include snug-options($position-element, $props...) using ($value) {
+      top: $value;
+    }
+  }
+  .left {
+    @include snug-options($position-element, $props...) using ($value) {
+      top: $value;
+    }
+  }
+  .right {
+    @include snug-options($position-element, $props...) using ($value) {
+      top: $value;
+    }
+  }
+
   /// width
   .w {
     @include snug-options($sizing-width, $props...) using ($value) {
