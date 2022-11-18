@@ -24,10 +24,10 @@ export default defineComponent({
   <header-layout />
 
   <main class="main container">
-    <div class="main__content pt-16">
+    <div class="main__content pt-12">
       <router-view />
     </div>
   </main>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

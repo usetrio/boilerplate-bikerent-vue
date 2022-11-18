@@ -8,9 +8,12 @@ import { Chip } from '@/components/chip'
 import { BookingAddressMap, BookingPricing } from '@/components/booking'
 import { CurrencyCode } from '@/core/config'
 
+import { BreadcrumbsLayout } from '@/components/layout'
+
 export default defineComponent({
   name: 'DetailsView',
   components: {
+    BreadcrumbsLayout,
     LoadingSpinner,
     BikeImageSelector,
     BikeSpecs,
@@ -19,6 +22,13 @@ export default defineComponent({
     BookingAddressMap,
     BookingPricing,
     BikeBookmark
+  },
+  metaInfo() {
+    const { name } = this.data || {}
+
+    return {
+      title: name ? `${name} - BikeRent Vue` : 'Details - BikeRent Vue'
+    }
   },
   data: () => ({
     isLoading: false,
@@ -73,6 +83,10 @@ export default defineComponent({
 </script>
 
 <template>
+  <div v-if="hasData" class="absolute top-0 left-0 pl-2">
+    <breadcrumbs-layout theme="primary" :breadcrumbs="[{ name: data!.name }]" />
+  </div>
+
   <div class="page page--details">
     <template v-if="isLoading">
       <div class="text-center my-32">
