@@ -12,7 +12,7 @@ export default defineComponent({
       <div class="container mx-auto">
         <div class="flex">
           <h1 class="my-0 text-5xl font-extrabold">
-            <router-link :to="{ name: 'home' }" class="button button--primary button--text">Bike Rental</router-link>
+            <router-link :to="{ name: 'home' }">Bike Rental</router-link>
           </h1>
 
           <div class="navigation ml-auto">
