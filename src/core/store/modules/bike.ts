@@ -24,7 +24,7 @@ export default defineStore({
   },
   actions: {
     /**
-     * fechs list of
+     * fetchs list of bikes available
      */
     async fetchList() {
       const result = await bike.list(true)
