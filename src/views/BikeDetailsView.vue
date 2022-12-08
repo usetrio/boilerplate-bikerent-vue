@@ -11,7 +11,7 @@ import { CurrencyCode } from '@/core/config'
 import { BreadcrumbsLayout } from '@/components/layout'
 
 export default defineComponent({
-  name: 'DetailsView',
+  name: 'BikeDetailsView',
   components: {
     BreadcrumbsLayout,
     LoadingSpinner,

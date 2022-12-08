@@ -4,6 +4,6 @@ export default [
   {
     path: '/details/:id',
     name: 'details',
-    component: () => import('@/views/DetailsView.vue')
+    component: () => import('@/views/BikeDetailsView.vue')
   }
 ] as RouteRecordRaw[]
