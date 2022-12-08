@@ -2,6 +2,7 @@
 import { defineComponent, type PropType } from 'vue'
 
 import type { CurrencyCode } from '@/core/config'
+import { formatCurrency } from '@/core/helpers/currency'
 
 export type PropRate = 'daily' | 'weekly' | 'monthly' | 'anually' | 'none'
 
@@ -23,15 +24,7 @@ export default defineComponent({
   },
   computed: {
     formattedPrice() {
-      const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: this.currency,
-        currencyDisplay: 'symbol',
-        maximumFractionDigits: this.price % 1 > 0 ? 2 : 0
-      })
-      const [{ value: currency }, { value: price }] = formatter.formatToParts(this.price)
-
-      return `${price} ${currency}`
+      return formatCurrency(this.price, this.currency)
     },
     rateLabel() {
       let label = ''

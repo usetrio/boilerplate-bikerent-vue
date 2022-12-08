@@ -3,6 +3,7 @@ import { PRICING_SERVICE_FEE } from '@/core/config'
 import { defineComponent, type PropType } from 'vue'
 import { Icon } from '@/components/icon/'
 import type { CurrencyCode } from '@/core/config'
+import { formatCurrency } from '@/core/helpers/currency'
 
 export default defineComponent({
   name: 'BookingPricing',
@@ -27,14 +28,7 @@ export default defineComponent({
   },
   methods: {
     formatPrice(value: number): String {
-      const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: this.currency,
-        currencyDisplay: 'symbol',
-        maximumFractionDigits: value % 1 > 0 ? 2 : 0
-      })
-      const [{ value: currency }, { value: price }] = formatter.formatToParts(value)
-      return `${price} ${currency}`
+      return formatCurrency(value, this.currency)
     }
   }
 })
