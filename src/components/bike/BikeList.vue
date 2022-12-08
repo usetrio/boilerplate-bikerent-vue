@@ -15,8 +15,7 @@ export default defineComponent({
       type: Array as PropType<Bike[]>,
       default: () => []
     }
-  },
-  data: () => ({})
+  }
 })
 </script>
 
