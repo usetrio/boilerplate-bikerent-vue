@@ -25,7 +25,9 @@ export default defineComponent({
       default: 0
     }
   },
-  emits: ['update:active'],
+  emits: {
+    'update:active': (_state: boolean) => true
+  },
   computed: {
     iconType() {
       return this.active ? IconType.SOLID : IconType.REGULAR
