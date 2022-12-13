@@ -1,7 +1,7 @@
 import { URL, fileURLToPath } from 'node:url'
 
 import autoprefixer from 'autoprefixer'
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import { extname } from 'node:path'
 import postcssDiscardComments from 'postcss-discard-comments'
 import postcssExtend from 'postcss-extend-rule'
