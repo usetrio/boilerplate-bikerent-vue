@@ -40,6 +40,7 @@
     "@types/lodash-es": "4.17.6",
     "@types/node": "16.11.68",
     "@vitejs/plugin-vue": "3.2.0",
+    "@vitest/coverage-c8": "0.25.7",
     "@vue/eslint-config-prettier": "7.0.0",
     "@vue/eslint-config-typescript": "11.0.2",
     "@vue/test-utils": "2.2.0",

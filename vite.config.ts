@@ -65,6 +65,14 @@ export default defineConfig(({ mode }) => {
             })
         ].filter((p) => !!p)
       }
+    },
+    test: {
+      coverage: {
+        lines: 80,
+        functions: 80,
+        branches: 80,
+        statements: 80
+      }
     }
   }
 })
