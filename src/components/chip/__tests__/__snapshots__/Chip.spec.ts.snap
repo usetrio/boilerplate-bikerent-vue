@@ -1,3 +1,3 @@
 // Vitest Snapshot v1
 
-exports[`Chip > snapshot UI testing 1`] = `"content"`;
+exports[`Chip > renders correctly 1`] = `"content"`;

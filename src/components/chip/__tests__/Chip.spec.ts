@@ -4,16 +4,10 @@ import { Chip } from '@/components/chip'
 import { mount } from '@vue/test-utils'
 
 describe('Chip', () => {
-  it('snapshot UI testing', () => {
+  it('renders correctly', () => {
     const wrapper = mount(Chip, { slots: { default: 'content' } })
 
     expect(wrapper.text()).toMatchSnapshot()
-  })
-
-  it('renders properly', () => {
-    const wrapper = mount(Chip, { slots: { default: 'content' } })
-
-    expect(wrapper.text()).toContain('content')
   })
 
   it('prop size (default)', () => {
