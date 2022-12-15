@@ -16,7 +16,7 @@ describe('ImageLazy', () => {
   it('renders correctly', () => {
     const wrapper = mount(ImageLazy, { props: { src: image1 } })
 
-    expect(wrapper.text()).toMatchSnapshot()
+    expect(wrapper.html()).toMatchSnapshot()
   })
 
   it('render image element', () => {

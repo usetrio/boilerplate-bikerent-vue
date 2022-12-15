@@ -1,3 +1,7 @@
 // Vitest Snapshot v1
 
-exports[`Chip > renders correctly 1`] = `"content"`;
+exports[`Chip > renders correctly 1`] = `
+"<div class=\\"chip chip--sm chip--gray\\" data-v-da85bae5=\\"\\">
+  <div class=\\"chip__content\\" data-v-da85bae5=\\"\\">content</div>
+</div>"
+`;

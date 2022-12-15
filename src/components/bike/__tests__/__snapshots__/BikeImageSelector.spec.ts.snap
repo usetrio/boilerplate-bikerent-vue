@@ -1,3 +1,14 @@
 // Vitest Snapshot v1
 
-exports[`BikeImageSelector > renders correctly 1`] = `""`;
+exports[`BikeImageSelector > renders correctly 1`] = `
+"<section class=\\"bike-image-selector\\" data-v-31cef92f=\\"\\">
+  <div class=\\"grid grid-cols-1 gap-8\\" data-v-31cef92f=\\"\\">
+    <div class=\\"bike-image-selector__images\\" data-v-31cef92f=\\"\\">
+      <div class=\\"bike-image-selector__image p-3 mb-3 bike-image-selector__image--active\\" data-v-31cef92f=\\"\\"><img class=\\"image image--lazy image--cover\\" data-v-25f78567=\\"\\" data-v-31cef92f=\\"\\"></div>
+      <div class=\\"bike-image-selector__image p-3 mb-3\\" data-v-31cef92f=\\"\\"><img class=\\"image image--lazy image--cover\\" data-v-25f78567=\\"\\" data-v-31cef92f=\\"\\"></div>
+      <div class=\\"bike-image-selector__image p-3 mb-3\\" data-v-31cef92f=\\"\\"><img class=\\"image image--lazy image--cover\\" data-v-25f78567=\\"\\" data-v-31cef92f=\\"\\"></div>
+    </div>
+    <div class=\\"bike-image-selector__selected\\" data-v-31cef92f=\\"\\"><img class=\\"image image--lazy image--cover aspect-wide\\" data-v-25f78567=\\"\\" data-v-31cef92f=\\"\\"></div>
+  </div>
+</section>"
+`;

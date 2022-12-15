@@ -15,7 +15,7 @@ describe('BikeImageSelector', () => {
   it('renders correctly', () => {
     const wrapper = mount(BikeImageSelector, { props: { images: mockedImageUrls } })
 
-    expect(wrapper.text()).toMatchSnapshot()
+    expect(wrapper.html()).toMatchSnapshot()
   })
 
   it('render empty component', () => {

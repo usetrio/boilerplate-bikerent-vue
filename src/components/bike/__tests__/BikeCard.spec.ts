@@ -13,7 +13,7 @@ describe('BikeCard', () => {
   it('renders correctly', () => {
     const wrapper = mount(BikeCard, { props: { data: mockedBike }, global: { plugins: [router] } })
 
-    expect(wrapper.text()).toMatchSnapshot()
+    expect(wrapper.html()).toMatchSnapshot()
   })
 
   it('displays title', () => {

@@ -7,7 +7,7 @@ describe('Chip', () => {
   it('renders correctly', () => {
     const wrapper = mount(Chip, { slots: { default: 'content' } })
 
-    expect(wrapper.text()).toMatchSnapshot()
+    expect(wrapper.html()).toMatchSnapshot()
   })
 
   it('prop size (default)', () => {
