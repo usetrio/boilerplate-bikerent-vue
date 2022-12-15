@@ -1,7 +1,7 @@
 export const mockedImageUrls = [
   'https://cremecycles.com/images/glowne/15.jpg',
   'https://cremecycles.com/images/glowne/13.jpg',
-  'https://cremecycles.com/images/glowne/15.jpg'
+  'https://cremecycles.com/images/glowne/14.jpg'
 ]
 
 const mockedBike: Bike = {
