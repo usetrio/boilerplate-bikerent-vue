@@ -2,13 +2,13 @@ import { BikeBookmark, BikeCard, BikePrice } from '@/components/bike'
 import { describe, expect, it, vi } from 'vitest'
 
 import { CurrencyCode } from '@/core/config'
-import { IntersectionObserverMock } from '@/core/helpers/tests'
+import { mockIntersectionObserver } from '@/core/helpers/tests'
 import { mockedBike } from '@/mocks/'
 import { mount } from '@vue/test-utils'
 import router from '@/router'
 
 describe('BikeCard', () => {
-  vi.stubGlobal('IntersectionObserver', IntersectionObserverMock)
+  vi.stubGlobal('IntersectionObserver', mockIntersectionObserver)
 
   it('renders correctly', () => {
     const wrapper = mount(BikeCard, { props: { data: mockedBike }, global: { plugins: [router] } })
@@ -34,6 +34,12 @@ describe('BikeCard', () => {
     const wrapper = mount(BikeCard, { props: { data: mockedBike, fluid: true }, global: { plugins: [router] } })
 
     expect(wrapper.findComponent(BikeBookmark).exists()).toBe(true)
+  })
+
+  it('renders image', () => {
+    const wrapper = mount(BikeCard, { props: { data: mockedBike, fluid: true }, global: { plugins: [router] } })
+
+    expect(wrapper.find('.bike-card__image img').exists()).toBe(true)
   })
 
   it('renders price correctly', () => {

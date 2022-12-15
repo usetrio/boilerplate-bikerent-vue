@@ -1,10 +1,14 @@
 import { vi } from 'vitest'
 
-const IntersectionObserverMock = vi.fn(() => ({
-  disconnect: vi.fn(),
-  observe: vi.fn(),
-  takeRecords: vi.fn(),
-  unobserve: vi.fn()
-}))
+const mockIntersectionObserver = vi.fn((callback: Function) => {
+  return {
+    disconnect: vi.fn(),
+    observe(target: Element) {
+      callback.call(null, [{ target, isIntersecting: true, intersectionRatio: 1 }])
+    },
+    takeRecords: vi.fn(),
+    unobserve: vi.fn()
+  }
+})
 
-export { IntersectionObserverMock }
+export { mockIntersectionObserver }
