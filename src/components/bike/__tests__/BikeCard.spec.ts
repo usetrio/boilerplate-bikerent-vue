@@ -1,10 +1,10 @@
 import { BikeBookmark, BikeCard, BikePrice } from '@/components/bike'
 import { describe, expect, it, vi } from 'vitest'
+import { flushPromises, mount } from '@vue/test-utils'
 
 import { CurrencyCode } from '@/core/config'
 import { mockIntersectionObserver } from '@/core/helpers/tests'
 import { mockedBike } from '@/mocks/'
-import { mount } from '@vue/test-utils'
 import router from '@/router'
 
 describe('BikeCard', () => {
@@ -34,6 +34,19 @@ describe('BikeCard', () => {
     const wrapper = mount(BikeCard, { props: { data: mockedBike, fluid: true }, global: { plugins: [router] } })
 
     expect(wrapper.findComponent(BikeBookmark).exists()).toBe(true)
+  })
+
+  it('changes bookmark state', async () => {
+    const wrapper = mount(BikeCard, { props: { data: mockedBike, fluid: true }, global: { plugins: [router] } })
+
+    const bikeBookmark = wrapper.findComponent(BikeBookmark)
+
+    await flushPromises()
+
+    bikeBookmark.trigger('click')
+    await flushPromises()
+
+    expect(bikeBookmark.classes()).contain('bike-bookmark--active')
   })
 
   it('renders image', () => {
