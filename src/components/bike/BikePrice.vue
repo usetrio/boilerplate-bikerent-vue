@@ -4,7 +4,7 @@ import { defineComponent, type PropType } from 'vue'
 import type { CurrencyCode } from '@/core/config'
 import { formatCurrency } from '@/core/helpers/currency'
 
-export type PropRate = 'daily' | 'weekly' | 'monthly' | 'anually' | 'none'
+export type PropRateType = 'daily' | 'weekly' | 'monthly' | 'anually' | 'none'
 
 export default defineComponent({
   name: 'BikePrice',
@@ -18,8 +18,8 @@ export default defineComponent({
       required: true
     },
     rate: {
-      type: String as PropType<PropRate>,
-      default: 'nome'
+      type: String as PropType<PropRateType>,
+      default: ''
     }
   },
   computed: {
