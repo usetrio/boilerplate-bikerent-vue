@@ -1,17 +1,9 @@
+import type { BikeRent, BikeRentDetails, BikeReturnDetails } from './typings/bike'
+
 // import { ApiResponseError, client } from '@/core/api'
 import { client } from '@/core/api'
-interface BikeRent {
-  rentAmount: number
-  fee: 60
-  totalAmount: 460
-}
 
-interface BikeRentDetails {
-  bikeId: number
-  userId: number
-  dateFrom: string
-  dateTo: string
-}
+export type { BikeRent, BikeRentDetails, BikeReturnDetails }
 
 /**
  * List Bikes
@@ -57,4 +49,12 @@ export async function rent(details: BikeRentDetails): Promise<BikeRent> {
   const { data } = await client.post<BikeRent>('bikes/rent', details)
 
   return data
+}
+
+/**
+ * Returns a bike
+ * @param {BikeReturnDetails} details
+ */
+export async function returns(details: BikeReturnDetails): Promise<void> {
+  await client.post('bikes/return', details)
 }
