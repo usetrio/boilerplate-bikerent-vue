@@ -54,7 +54,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .icon {
-  @apply .inline-block, .text-base;
+  @apply .inline-block;
   position: relative;
 }
 </style>

@@ -1,6 +1,8 @@
+import type { AxiosError } from 'axios'
+
 export default [
   undefined,
-  (error) => {
+  (error: AxiosError) => {
     const { response, message } = error
     if (!response) {
       return Promise.reject(error)

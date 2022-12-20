@@ -33,9 +33,9 @@ export default defineComponent({
       return this.active ? IconType.SOLID : IconType.REGULAR
     },
     componentClasses() {
-      const classes: UICSSClass = []
+      const classes: UICSSClass = ['bike-bookmark']
 
-      classes.push({ 'bike-bookmark--outlined': this.outlined })
+      classes.push({ 'bike-bookmark--outlined': this.outlined, 'bike-bookmark--active': this.active })
 
       return classes
     },
@@ -58,7 +58,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div :class="componentClasses" :style="componentStyle" class="bike-bookmark" @click.prevent="handleToggleActive">
+  <div :class="componentClasses" :style="componentStyle" @click.prevent="handleToggleActive">
     <icon :type="iconType" :size="size">heart</icon>
   </div>
 </template>

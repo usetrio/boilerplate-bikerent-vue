@@ -13,7 +13,14 @@ export function formatCurrency(value: number, currency: string): string {
     currencyDisplay: 'symbol',
     maximumFractionDigits: value % 1 > 0 ? 2 : 0
   })
-  const [{ value: currencyLabel }, { value: price }] = formatter.formatToParts(value)
 
-  return `${price} ${currencyLabel}`
+  const parts = formatter.formatToParts(value)
+
+  const currencyLabel = parts.find(({ type }) => type === 'currency')!.value
+  const formattedValue = parts
+    .filter(({ type }) => type !== 'currency')
+    .map(({ value }) => value)
+    .reduce((string, part) => string + part)
+
+  return `${formattedValue} ${currencyLabel}`
 }
