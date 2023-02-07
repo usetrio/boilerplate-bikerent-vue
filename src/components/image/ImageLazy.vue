@@ -23,6 +23,18 @@ export default defineComponent({
       return this.$refs.image as HTMLImageElement
     }
   },
+  watch: {
+    async src() {
+      this.clearImage()
+      if (!this.src) {
+        return
+      }
+
+      await nextTick()
+
+      this.initObserver()
+    }
+  },
   beforeMount() {
     this.observer = new IntersectionObserver(
       debounce(async ([entry]) => {
@@ -41,19 +53,32 @@ export default defineComponent({
     )
   },
   async mounted() {
+    this.clearImage()
     await nextTick()
-    this.image && this.observer?.observe(this.image)
+
+    this.initObserver()
   },
   beforeUnmount() {
     this.observer?.disconnect()
   },
   methods: {
+    initObserver() {
+      this.observer?.disconnect()
+      this.image && this.observer?.observe(this.image)
+    },
     setImage() {
       if (!this.image) {
         return
       }
 
       this.image.src = this.src
+    },
+    clearImage() {
+      if (!this.image) {
+        return
+      }
+
+      this.image.removeAttribute('src')
     }
   }
 })

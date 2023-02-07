@@ -1,7 +1,7 @@
 import { URL, fileURLToPath } from 'node:url'
 
 import autoprefixer from 'autoprefixer'
-import { defineConfig } from 'vite'
+import { defineConfig, type ConfigEnv } from 'vitest/config'
 import { extname } from 'node:path'
 import postcssDiscardComments from 'postcss-discard-comments'
 import postcssExtend from 'postcss-extend-rule'
@@ -10,10 +10,10 @@ import postcssPurgeCSS from '@fullhuman/postcss-purgecss'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default ({ mode }: ConfigEnv) => {
   const isProduction = mode === 'production'
 
-  return {
+  return defineConfig({
     plugins: [vue()],
     resolve: {
       alias: {
@@ -65,6 +65,18 @@ export default defineConfig(({ mode }) => {
             })
         ].filter((p) => !!p)
       }
+    },
+    test: {
+      root: './src',
+      environment: 'jsdom',
+      // https://vitest.dev/guide/coverage.html
+      coverage: {
+        reporter: ['json', 'text'],
+        lines: 80,
+        functions: 80,
+        branches: 80,
+        statements: 80
+      }
     }
-  }
-})
+  })
+}

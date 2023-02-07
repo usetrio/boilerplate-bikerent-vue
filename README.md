@@ -60,6 +60,20 @@ npm run build
 npm run test:unit
 ```
 
+For development of new tests, use instead:
+
+```sh
+npm run test:unit:dev
+```
+
+Unit tests rely on snapshots, case component html is changed, it will need to updated them:
+
+```
+npm run test:unit:snapshots
+```
+
+**Note:** snapshots should be added to commits as well.
+
 ### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
 
 ```sh

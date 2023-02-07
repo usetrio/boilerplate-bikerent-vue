@@ -9,6 +9,7 @@ import { BookingAddressMap, BookingPricing } from '@/components/booking'
 import { CurrencyCode } from '@/core/config'
 
 import { BreadcrumbsLayout } from '@/components/layout'
+import { NotFound } from '@/components/error'
 
 export default defineComponent({
   name: 'BikeDetailsView',
@@ -21,7 +22,8 @@ export default defineComponent({
     Chip,
     BookingAddressMap,
     BookingPricing,
-    BikeBookmark
+    BikeBookmark,
+    NotFound
   },
   metaInfo() {
     const { name } = this.data || {}
@@ -94,7 +96,7 @@ export default defineComponent({
       </div>
     </template>
     <template v-else-if="!hasData">
-      <p>No data available</p>
+      <not-found />
     </template>
     <template v-else>
       <div class="grid gap-x-6 grid-cols-1">
